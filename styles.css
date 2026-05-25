@@ -278,6 +278,7 @@ p { font-size: 1rem; }
 }
 .block:hover { background: var(--pop); color: var(--bg); }
 .block:hover .num { color: var(--bg); }
+.block-wide { grid-column: 1 / -1; }
 .block .num {
   display: block;
   font-family: 'Anton', sans-serif;
