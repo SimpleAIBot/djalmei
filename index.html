@@ -3,20 +3,87 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="DJ ALMEi. DJ en Vigo. Salas, cumples, privadas, empresa, bailes y bodas. Toda Galicia." />
+
+  <!-- SEO básico -->
+  <title>DJ en Vigo y Galicia · DJ ALMEi · Bodas, eventos y fiestas</title>
+  <meta name="description" content="DJ ALMEi · DJ profesional en Vigo y toda Galicia para bodas, cumpleaños, fiestas privadas, salas, eventos de empresa y bailes. Reserva tu fecha por Instagram." />
+  <meta name="keywords" content="DJ Vigo, DJ Galicia, DJ bodas Vigo, DJ Baixo Miño, DJ Pontevedra, DJ Santiago de Compostela, DJ Coruña, DJ Ourense, DJ Lugo, DJ cumpleaños, DJ fiestas privadas, DJ eventos empresa, DJ salas, DJ ALMEi, Djalmei" />
   <meta name="author" content="DJ ALMEi" />
+  <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#0c0c0c" />
-  <meta property="og:title" content="DJ ALMEi — DJ Vigo / Galicia" />
-  <meta property="og:description" content="DJ en Vigo. Reserva por DM." />
+  <link rel="canonical" href="https://djalmei.eu.org/" />
+
+  <!-- Open Graph (WhatsApp, Facebook, LinkedIn) -->
+  <meta property="og:locale" content="es_ES" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://djalmei.eu.org" />
+  <meta property="og:site_name" content="DJ ALMEi" />
+  <meta property="og:title" content="DJ en Vigo y Galicia · DJ ALMEi" />
+  <meta property="og:description" content="DJ profesional en Vigo para bodas, cumpleaños, fiestas privadas, salas, eventos de empresa y bailes. Toda Galicia." />
+  <meta property="og:url" content="https://djalmei.eu.org/" />
   <meta property="og:image" content="https://djalmei.eu.org/images/hero.webp" />
-  <title>DJ ALMEi — DJ Vigo / Galicia</title>
+  <meta property="og:image:alt" content="DJ ALMEi pinchando en una sesión" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DJ en Vigo y Galicia · DJ ALMEi" />
+  <meta name="twitter:description" content="DJ profesional en Vigo para bodas, cumpleaños, fiestas privadas, salas, eventos de empresa y bailes." />
+  <meta name="twitter:image" content="https://djalmei.eu.org/images/hero.webp" />
+
+  <!-- Favicon y fuentes -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Datos estructurados: negocio local para Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://djalmei.eu.org/#dj",
+    "name": "DJ ALMEi",
+    "alternateName": ["Djalmei", "DJ Almei", "almei_dj"],
+    "description": "DJ profesional en Vigo y toda Galicia. Música para bodas, cumpleaños, fiestas privadas, salas, eventos de empresa y bailes.",
+    "url": "https://djalmei.eu.org/",
+    "image": "https://djalmei.eu.org/images/hero.webp",
+    "logo": "https://djalmei.eu.org/images/logo.png",
+    "priceRange": "€€",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Vigo",
+      "addressRegion": "Pontevedra",
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 42.2406,
+      "longitude": -8.7207
+    },
+    "areaServed": [
+      {"@type": "City", "name": "Vigo"},
+      {"@type": "City", "name": "Pontevedra"},
+      {"@type": "City", "name": "Santiago de Compostela"},
+      {"@type": "City", "name": "A Coruña"},
+      {"@type": "City", "name": "Ourense"},
+      {"@type": "City", "name": "Lugo"},
+      {"@type": "AdministrativeArea", "name": "Baixo Miño"},
+      {"@type": "AdministrativeArea", "name": "Rías Baixas"},
+      {"@type": "AdministrativeArea", "name": "Galicia"}
+    ],
+    "sameAs": [
+      "https://www.instagram.com/almei_dj/"
+    ],
+    "makesOffer": [
+      {"@type": "Offer", "name": "DJ para salas y discotecas"},
+      {"@type": "Offer", "name": "DJ para cumpleaños"},
+      {"@type": "Offer", "name": "DJ para fiestas privadas"},
+      {"@type": "Offer", "name": "DJ para eventos de empresa"},
+      {"@type": "Offer", "name": "DJ para bailes y verbenas"},
+      {"@type": "Offer", "name": "DJ para bodas"}
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -40,11 +107,11 @@
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-left">
-        <p class="meta">VIGO / GALICIA — Disponible 2026</p>
+        <p class="meta">DJ EN VIGO / TODA GALICIA — Disponible 2026</p>
         <h1 class="hero-title">
+          <span>DJ EN VIGO.</span>
           <span>PINCHO</span>
-          <span>EN TU</span>
-          <span class="pop">FIESTA.</span>
+          <span class="pop">TU FIESTA.</span>
         </h1>
         <p class="hero-sub">
           Salas, cumples, privadas, empresa, bailes y bodas.
@@ -55,7 +122,7 @@
         </a>
       </div>
       <div class="hero-right">
-        <img src="images/hero.webp" alt="DJ ALMEi pinchando" class="hero-photo" />
+        <img src="images/hero.webp" alt="DJ ALMEi, DJ en Vigo pinchando en una sesión nocturna" class="hero-photo" />
       </div>
     </div>
   </section>
@@ -63,8 +130,8 @@
   <!-- MARQUESINA -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
-      <span>VIGO •</span><span>PONTEVEDRA •</span><span>SANTIAGO •</span><span>A CORUÑA •</span><span>OURENSE •</span><span>LUGO •</span><span>TODA GALICIA •</span>
-      <span>VIGO •</span><span>PONTEVEDRA •</span><span>SANTIAGO •</span><span>A CORUÑA •</span><span>OURENSE •</span><span>LUGO •</span><span>TODA GALICIA •</span>
+      <span>VIGO •</span><span>BAIXO MIÑO •</span><span>PONTEVEDRA •</span><span>SANTIAGO •</span><span>A CORUÑA •</span><span>OURENSE •</span><span>LUGO •</span><span>TODA GALICIA •</span>
+      <span>VIGO •</span><span>BAIXO MIÑO •</span><span>PONTEVEDRA •</span><span>SANTIAGO •</span><span>A CORUÑA •</span><span>OURENSE •</span><span>LUGO •</span><span>TODA GALICIA •</span>
     </div>
   </div>
 
@@ -139,8 +206,8 @@
       <h2>Trabajando.</h2>
     </div>
     <div class="grid-photos">
-      <figure class="photo"><img src="images/dj-1.jpg" alt="DJ ALMEi en cabina" /></figure>
-      <figure class="photo"><img src="images/dj-2.jpg" alt="DJ ALMEi ajustando auriculares" /></figure>
+      <figure class="photo"><img src="images/dj-1.jpg" alt="DJ ALMEi mezclando con controladora Numark, DJ profesional en Vigo" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-2.jpg" alt="DJ ALMEi ajustando auriculares antes de una sesión en Galicia" loading="lazy" /></figure>
     </div>
   </section>
 
@@ -151,9 +218,11 @@
       <h2>Voy donde haga falta.</h2>
     </div>
     <p class="zona-text">
-      Base en Vigo. Galicia entera al alcance: Pontevedra, A Coruña, Santiago,
-      Ourense, Lugo, Rías Baixas, Costa da Morte y todos los pueblos del medio.
-      Si tu sitio es difícil, escríbeme y lo vemos.
+      DJ profesional con base en <strong>Vigo</strong> y disponible en toda
+      <strong>Galicia</strong>: Pontevedra, A Coruña, Santiago de Compostela,
+      Ourense, Lugo, Rías Baixas, Baixo Miño, Costa da Morte y todos los
+      pueblos del medio. Si buscas un DJ en Vigo o el Baixo Miño para tu boda,
+      cumpleaños, fiesta privada o evento de empresa, escríbeme y vemos fechas.
     </p>
     <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg">
       Consultar fecha →
