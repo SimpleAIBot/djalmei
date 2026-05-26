@@ -48,6 +48,7 @@
     "url": "https://djalmei.eu.org/",
     "image": "https://djalmei.eu.org/images/hero.webp",
     "logo": "https://djalmei.eu.org/images/logo.png",
+    "telephone": "+34644671744",
     "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
@@ -72,7 +73,8 @@
       {"@type": "AdministrativeArea", "name": "Galicia"}
     ],
     "sameAs": [
-      "https://www.instagram.com/almei_dj/"
+      "https://www.instagram.com/almei_dj/",
+      "https://wa.me/34644671744"
     ],
     "makesOffer": [
       {"@type": "Offer", "name": "DJ para salas y discotecas"},
@@ -85,6 +87,64 @@
     ]
   }
   </script>
+
+  <!-- Datos estructurados: FAQ para rich snippets en Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "¿Cuánto cuesta contratar al DJ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Depende del tipo de evento, las horas de sesión, la zona y la fecha. Escríbeme con los detalles y te paso presupuesto cerrado, sin sorpresas."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Llevas tú el equipo de sonido?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, llevo mi propio equipo de sonido y cabina para eventos de tamaño habitual. Para eventos grandes o al aire libre coordinamos refuerzos de PA si hace falta."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cuántas horas pinchas en una sesión?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mínimo 2 horas y hasta que la pista lo pida. Para bodas, cumples y eventos largos sin problema 4-6 horas. Lo hablamos antes y nos ajustamos."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Podemos pasarte una lista de canciones?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Claro. Me dices estilos, canciones imprescindibles y canciones que NO quieras. Yo cierro la lista y tú confirmas. La idea es que suene a vuestro evento."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Cómo se reserva la fecha?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Lo más rápido es DM por Instagram o WhatsApp. Cerramos detalles, te paso presupuesto y reservamos la fecha con una pequeña señal. A partir de ahí, fecha bloqueada."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "¿Pinchas también música en gallego?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí. Si tu evento lo pide, pongo música en gallego, verbena, raíces o lo que la pista necesite. Toda Galicia, también en gallego."
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -93,15 +153,21 @@
     <a href="#" class="brand">
       <img src="images/logo.png" alt="DJ ALMEi" class="brand-logo" />
     </a>
-    <nav class="nav">
+    <nav class="nav" id="nav-menu">
       <a href="#servicios">Servicios</a>
       <a href="#estilos">Estilos</a>
       <a href="#zona">Zona</a>
       <a href="#sesiones">Sesiones</a>
+      <a href="#faq">FAQ</a>
     </nav>
-    <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-sm">
-      DM @ALMEI_DJ →
+    <a href="https://wa.me/34644671744" target="_blank" rel="noopener" class="cta cta-sm cta-nav">
+      WHATSAPP →
     </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
   </header>
 
   <!-- HERO -->
@@ -118,9 +184,14 @@
           Salas, tardeos, cumples, privadas, empresa, bailes y bodas.
           Llevo equipo y la pista llena.
         </p>
-        <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg">
-          DM @ALMEI_DJ →
-        </a>
+        <div class="cta-row">
+          <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20te%20escribo%20por%20una%20fecha" target="_blank" rel="noopener" class="cta cta-lg">
+            WHATSAPP →
+          </a>
+          <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg cta-dark">
+            INSTAGRAM →
+          </a>
+        </div>
       </div>
       <div class="hero-right">
         <img src="images/hero.webp" alt="DJ ALMEi, DJ en Vigo pinchando en una sesión nocturna" class="hero-photo" />
@@ -200,9 +271,14 @@
       <button class="chip" type="button">Pop Comercial</button>
       <button class="chip" type="button">Techno</button>
     </div>
-    <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg">
-      DM @ALMEI_DJ con tu selección →
-    </a>
+    <div class="cta-row">
+      <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20me%20gustan%20estos%20estilos%3A%20" target="_blank" rel="noopener" class="cta cta-lg">
+        WHATSAPP →
+      </a>
+      <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg cta-dark">
+        INSTAGRAM →
+      </a>
+    </div>
   </section>
 
   <!-- GALERÍA -->
@@ -212,8 +288,8 @@
       <h2>Trabajando.</h2>
     </div>
     <div class="grid-photos">
-      <figure class="photo"><img src="images/dj-1.jpg" alt="DJ ALMEi mezclando con controladora Numark, DJ profesional en Vigo" loading="lazy" /></figure>
-      <figure class="photo"><img src="images/dj-2.jpg" alt="DJ ALMEi ajustando auriculares antes de una sesión en Galicia" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-1.webp" alt="DJ ALMEi mezclando con controladora Numark, DJ profesional en Vigo" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-2.webp" alt="DJ ALMEi ajustando auriculares antes de una sesión en Galicia" loading="lazy" /></figure>
     </div>
   </section>
 
@@ -230,9 +306,14 @@
       pueblos del medio. Si buscas un DJ en Vigo o el Baixo Miño para tu boda,
       cumpleaños, fiesta privada o evento de empresa, escríbeme y vemos fechas.
     </p>
-    <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg">
-      Consultar fecha →
-    </a>
+    <div class="cta-row">
+      <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20quiero%20consultar%20una%20fecha" target="_blank" rel="noopener" class="cta cta-lg">
+        WHATSAPP →
+      </a>
+      <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-lg cta-dark">
+        INSTAGRAM →
+      </a>
+    </div>
   </section>
 
   <!-- SESIONES -->
@@ -257,13 +338,52 @@
     </p>
   </section>
 
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="section-head">
+      <p class="meta">— Dudas</p>
+      <h2>Lo que me suelen preguntar.</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item">
+        <summary>¿Cuánto cuesta contratar al DJ?</summary>
+        <p>Depende del tipo de evento, las horas de sesión, la zona y la fecha. Escríbeme con los detalles y te paso presupuesto cerrado, sin sorpresas.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Llevas tú el equipo de sonido?</summary>
+        <p>Sí, llevo mi propio equipo de sonido y cabina para eventos de tamaño habitual. Para eventos grandes o al aire libre coordinamos refuerzos de PA si hace falta.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cuántas horas pinchas en una sesión?</summary>
+        <p>Mínimo 2 horas y hasta que la pista lo pida. Para bodas, cumples y eventos largos sin problema 4-6 horas. Lo hablamos antes y nos ajustamos.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Podemos pasarte una lista de canciones?</summary>
+        <p>Claro. Me dices estilos, canciones imprescindibles y canciones que NO quieras. Yo cierro la lista y tú confirmas. La idea es que suene a vuestro evento.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Cómo se reserva la fecha?</summary>
+        <p>Lo más rápido es DM por Instagram. Cerramos detalles, te paso presupuesto y reservamos la fecha con una pequeña señal. A partir de ahí, fecha bloqueada.</p>
+      </details>
+      <details class="faq-item">
+        <summary>¿Pinchas también música en gallego?</summary>
+        <p>Sí. Si tu evento lo pide, pongo música en gallego, verbena, raíces o lo que la pista necesite. Toda Galicia, también en gallego.</p>
+      </details>
+    </div>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="cta-block">
     <p class="meta">— Reserva</p>
     <h2 class="cta-huge">¿Lo hacemos?</h2>
-    <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-xl">
-      DM @ALMEI_DJ →
-    </a>
+    <div class="cta-row cta-row-center">
+      <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20quiero%20reservar%20fecha" target="_blank" rel="noopener" class="cta cta-xl">
+        WHATSAPP →
+      </a>
+      <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-xl">
+        INSTAGRAM →
+      </a>
+    </div>
     <p class="cta-foot">Respondo rápido. Cuéntame fecha, sitio y qué celebras.</p>
   </section>
 
@@ -271,7 +391,11 @@
   <footer class="bar bar-bottom">
     <span>© <span id="year"></span> DJ ALMEi</span>
     <span>VIGO / GALICIA</span>
-    <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener">@almei_dj ↗</a>
+    <span class="footer-links">
+      <a href="https://wa.me/34644671744" target="_blank" rel="noopener">WhatsApp ↗</a>
+      ·
+      <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener">@almei_dj ↗</a>
+    </span>
   </footer>
 
   <script src="script.js"></script>
