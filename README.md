@@ -10,7 +10,7 @@ Web personal de **Djalmei**, DJ joven afincado en Vigo, disponible para:
 
 **Zona de actuación:** Vigo, Pontevedra, A Coruña, Santiago, Ourense, Lugo y toda Galicia.
 
-- 🌐 Web: <https://djalmei.es>
+- 🌐 Web: <https://www.djalmei.es>
 - 📸 Instagram: [@almei_dj](https://www.instagram.com/almei_dj/)
 
 ---
@@ -47,22 +47,24 @@ git push -u origin main
 1. En GitHub → repo `SimpleAIBot/djalmei` → **Settings** → **Pages**.
 2. En *Source* elige **Deploy from a branch**.
 3. Branch: `main` / carpeta `/ (root)` → **Save**.
-4. En *Custom domain* escribe `djalmei.es` y guarda.
+4. En *Custom domain* escribe `www.djalmei.es` y guarda.
 5. Marca **Enforce HTTPS** cuando esté disponible.
 
 ### 3. Configurar Cloudflare (DNS hacia GitHub Pages)
 
-En el panel de Cloudflare del dominio `djalmei.es` añade estos registros:
+Dominio principal: **www.djalmei.es**. En el panel de Cloudflare del dominio `djalmei.es` añade estos registros:
 
 | Tipo  | Nombre | Contenido                | Proxy        |
 |-------|--------|--------------------------|--------------|
-| A     | @      | 185.199.108.153          | DNS only (☁ gris) |
+| CNAME | www    | simpleaibot.github.io    | DNS only (☁ gris) |
+| A     | @      | 185.199.108.153          | DNS only |
 | A     | @      | 185.199.109.153          | DNS only |
 | A     | @      | 185.199.110.153          | DNS only |
 | A     | @      | 185.199.111.153          | DNS only |
-| CNAME | www    | simpleaibot.github.io    | DNS only |
 
-> **Importante:** mientras GitHub verifica el dominio, mantén el proxy de Cloudflare en **DNS only** (nube gris). Cuando ya esté validado y HTTPS activo, puedes activar el proxy (nube naranja) si quieres usar las funciones de Cloudflare.
+> Los registros A del apex (`@`) sirven para que `djalmei.es` (sin www) también funcione y pueda redirigir a `www.djalmei.es`.
+>
+> **Importante:** mientras GitHub verifica el dominio, mantén el proxy de Cloudflare en **DNS only** (nube gris). Cuando ya esté validado y HTTPS activo, puedes activar el proxy (nube naranja).
 
 En Cloudflare → **SSL/TLS** → modo **Full**. Y en **Rules → Always Use HTTPS** activado.
 
