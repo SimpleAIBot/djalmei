@@ -10,7 +10,7 @@ Web personal de **Djalmei**, DJ joven afincado en Vigo, disponible para:
 
 **Zona de actuación:** Vigo, Pontevedra, A Coruña, Santiago, Ourense, Lugo y toda Galicia.
 
-- 🌐 Web: <https://djalmei.eu.org>
+- 🌐 Web: <https://djalmei.es>
 - 📸 Instagram: [@almei_dj](https://www.instagram.com/almei_dj/)
 
 ---
@@ -36,7 +36,7 @@ Sitio estático: HTML + CSS + JS puro. Sin build, sin dependencias.
 ```bash
 git init
 git add .
-git commit -m "Primera versión de djalmei.eu.org"
+git commit -m "Primera versión de djalmei.es"
 git branch -M main
 git remote add origin https://github.com/SimpleAIBot/djalmei.git
 git push -u origin main
@@ -47,12 +47,12 @@ git push -u origin main
 1. En GitHub → repo `SimpleAIBot/djalmei` → **Settings** → **Pages**.
 2. En *Source* elige **Deploy from a branch**.
 3. Branch: `main` / carpeta `/ (root)` → **Save**.
-4. En *Custom domain* escribe `djalmei.eu.org` y guarda.
+4. En *Custom domain* escribe `djalmei.es` y guarda.
 5. Marca **Enforce HTTPS** cuando esté disponible.
 
 ### 3. Configurar Cloudflare (DNS hacia GitHub Pages)
 
-En el panel de Cloudflare del dominio `djalmei.eu.org` añade estos registros:
+En el panel de Cloudflare del dominio `djalmei.es` añade estos registros:
 
 | Tipo  | Nombre | Contenido                | Proxy        |
 |-------|--------|--------------------------|--------------|

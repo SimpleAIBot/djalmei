@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://djalmei.eu.org/sitemap.xml
+Sitemap: https://djalmei.es/sitemap.xml
