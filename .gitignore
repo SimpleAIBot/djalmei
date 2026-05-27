@@ -11,3 +11,6 @@ desktop.ini
 # Backups o pruebas locales
 *.bak
 *.tmp
+
+# Config local de Claude Code
+.claude/
