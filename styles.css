@@ -86,6 +86,20 @@ p { font-size: 1rem; }
   border-bottom: none;
   border-top: var(--line) solid var(--fg);
 }
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.footer-links a {
+  color: var(--pop);
+  font-weight: 700;
+}
+.footer-links a:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
 
 .brand {
   display: flex;
