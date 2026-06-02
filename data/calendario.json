@@ -1,0 +1,33 @@
+{
+  "actualizado": "2026-06-02T15:00:00",
+  "info_publica": {
+    "residencia": {
+      "lugar": "A Guarda (Pontevedra)",
+      "aviso": "Viernes y sábados noche reservados por residencia en disco en {lugar} (jun-jul 2026). Las tardes podrían encajar si el evento es cerca."
+    }
+  },
+  "fechas": {
+    "2026-06-05": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO si el evento es cerca de {lugar} — residencia en disco esa noche"},
+    "2026-06-06": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO si el evento es cerca de {lugar} — residencia esa noche"},
+    "2026-06-12": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-06-13": {"tarde": "reservada", "noche": "reservada", "nota": ""},
+    "2026-06-19": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-06-20": {"tarde": "libre",     "noche": "consultar", "nota": "Tengo otra petición sin confirmar para esa noche — pregúntame"},
+    "2026-06-26": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-06-27": {"tarde": "reservada", "noche": "libre",     "nota": ""},
+    "2026-07-03": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-04": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-10": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-11": {"tarde": "consultar", "noche": "ocupado",   "nota": "Hay una petición sin cerrar para la tarde — pregúntame"},
+    "2026-07-17": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-18": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-24": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-07-25": {"tarde": "reservada", "noche": "ocupado",   "nota": "Tarde reservada (boda) — noche residencia"},
+    "2026-07-31": {"tarde": "libre",     "noche": "ocupado",   "nota": "Tarde libre SOLO cerca de {lugar} — residencia"},
+    "2026-08-01": {"tarde": "libre",     "noche": "libre",     "nota": ""},
+    "2026-08-08": {"tarde": "libre",     "noche": "libre",     "nota": ""},
+    "2026-08-15": {"tarde": "reservada", "noche": "reservada", "nota": ""},
+    "2026-08-22": {"tarde": "libre",     "noche": "consultar", "nota": "Hay otra petición pendiente para la noche — pregúntame"},
+    "2026-08-29": {"tarde": "libre",     "noche": "libre",     "nota": ""}
+  }
+}

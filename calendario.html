@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calendario · DJ ALMEi</title>
+  <meta name="description" content="Mira las fechas libres y reserva tu evento con DJ ALMEi." />
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* === Calendario · brutalist club === */
+    .cal-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .cal-header {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: var(--line-thick) solid var(--fg);
+    }
+    .cal-header h1 {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      text-transform: uppercase;
+      line-height: 0.9;
+    }
+    .cal-header .subtitle {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.75;
+      margin-top: 0.4rem;
+    }
+
+    /* Aviso de residencia */
+    .cal-aviso {
+      border: var(--line-thick) solid var(--pop);
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+      background: rgba(216, 255, 0, 0.05);
+    }
+    .cal-aviso strong { color: var(--pop); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.8rem; }
+
+    /* Leyenda */
+    .cal-leyenda {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.85rem;
+    }
+    .leyenda-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.7rem;
+      border: var(--line) solid var(--fg);
+    }
+    .leyenda-cuadro {
+      width: 18px; height: 18px; display: inline-block;
+      border: var(--line) solid var(--fg);
+    }
+    .leyenda-libre     { background: var(--pop); }
+    .leyenda-ocupado   { background: #2a2a2a; }
+    .leyenda-consultar { background: repeating-linear-gradient(45deg, var(--pop) 0 6px, #555 6px 12px); }
+    .leyenda-reservada {
+      background: #2a2a2a; position: relative;
+      width: auto; padding: 0 0.4rem; min-width: 18px;
+      color: #999; font-size: 0.6rem; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center;
+      letter-spacing: 0.05em;
+    }
+    .leyenda-reservada::before { content: 'RES'; }
+
+    /* Nav mes */
+    .cal-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      gap: 1rem;
+    }
+    .cal-mes {
+      font-family: 'Anton', sans-serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+    .cal-btn-nav {
+      background: var(--bg);
+      color: var(--fg);
+      border: var(--line) solid var(--fg);
+      padding: 0.5rem 1rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .cal-btn-nav:hover {
+      background: var(--pop);
+      color: var(--bg);
+      border-color: var(--pop);
+    }
+    .cal-btn-nav:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    /* Grid del mes */
+    .cal-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      background: var(--fg);
+      border: var(--line-thick) solid var(--fg);
+    }
+    .cal-cabecera-dia {
+      background: var(--bg);
+      color: var(--pop);
+      padding: 0.6rem 0.5rem;
+      text-align: center;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.75rem;
+    }
+
+    /* Celda día */
+    .cal-dia {
+      background: var(--bg);
+      min-height: 100px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .cal-dia.fuera-mes {
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    .cal-dia.pasado .cal-num { opacity: 0.35; }
+    .cal-dia.hoy { outline: 2px solid var(--pop); outline-offset: -2px; }
+
+    .cal-num {
+      padding: 0.3rem 0.5rem;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 0.02em;
+      color: var(--fg);
+    }
+
+    /* Dos tramos por día */
+    .cal-tramos {
+      display: flex;
+      flex-direction: column;
+      gap: 1px;
+      flex: 1;
+      padding: 0 0.3rem 0.3rem;
+    }
+    .cal-tramo {
+      flex: 1;
+      padding: 0.3rem 0.4rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: var(--line) solid transparent;
+      transition: all 0.1s;
+    }
+    .cal-tramo .tramo-label { opacity: 0.85; }
+    .cal-tramo .tramo-info { font-size: 0.9rem; }
+
+    /* Estados */
+    .estado-libre {
+      background: var(--pop);
+      color: var(--bg);
+      cursor: pointer;
+      border-color: var(--pop);
+    }
+    .estado-libre:hover {
+      background: var(--fg);
+      color: var(--bg);
+      border-color: var(--fg);
+    }
+    .estado-ocupado {
+      background: #2a2a2a;
+      color: #777;
+      cursor: not-allowed;
+    }
+    .estado-consultar {
+      background: repeating-linear-gradient(45deg, var(--pop) 0 6px, #555 6px 12px);
+      color: var(--bg);
+      cursor: pointer;
+      border-color: var(--pop);
+    }
+    .estado-consultar:hover {
+      background: var(--fg);
+      color: var(--bg);
+    }
+    .estado-reservada {
+      background: #2a2a2a;
+      color: #777;
+      cursor: not-allowed;
+      justify-content: center;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .estado-reservada .tramo-label,
+    .estado-reservada .tramo-info { display: none; }
+    .estado-reservada::before {
+      content: 'RESERVADA';
+      font-size: 0.7rem;
+    }
+    @media (max-width: 480px) {
+      .estado-reservada::before { content: 'RES.'; font-size: 0.6rem; }
+    }
+
+    /* Tooltip de nota */
+    .cal-tramo[data-nota]:not([data-nota=""]) .tramo-info::before {
+      content: 'ⓘ';
+      font-size: 0.85rem;
+    }
+
+    /* Volver */
+    .cal-volver {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      border: var(--line) solid var(--fg);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.85rem;
+      font-weight: 700;
+      transition: all 0.1s;
+    }
+    .cal-volver:hover {
+      background: var(--pop);
+      color: var(--bg);
+      border-color: var(--pop);
+    }
+
+    /* Modal */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      padding: 0.8rem;
+    }
+    .modal-bg.open { display: flex; }
+    .modal {
+      background: var(--bg);
+      border: var(--line-thick) solid var(--pop);
+      max-width: 520px;
+      width: 100%;
+      max-height: 92vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;  /* el scroll va dentro de .modal-body */
+    }
+    /* Header pegado arriba */
+    .modal-head {
+      padding: 1.2rem 1.4rem 0.8rem;
+      border-bottom: var(--line) solid var(--pop);
+      background: var(--bg);
+      position: relative;
+    }
+    .modal h2 {
+      font-size: 1.7rem !important;
+      margin-bottom: 0.3rem;
+      padding-right: 2.5rem;  /* hueco para el botón X */
+    }
+    .modal .modal-fecha {
+      color: var(--pop);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .modal-cerrar {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 36px;
+      height: 36px;
+      background: var(--bg);
+      color: var(--fg);
+      border: var(--line) solid var(--fg);
+      cursor: pointer;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+    }
+    .modal-cerrar:hover { background: var(--fg); color: var(--bg); }
+
+    /* Cuerpo scrollable */
+    .modal-body {
+      padding: 1rem 1.4rem;
+      overflow-y: auto;
+      flex: 1;
+      /* fade visual abajo para indicar scroll */
+      mask-image: linear-gradient(to bottom, black calc(100% - 24px), transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom, black calc(100% - 24px), transparent 100%);
+    }
+    .modal-body.no-fade {
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+
+    .modal .modal-aviso {
+      background: rgba(216, 255, 0, 0.1);
+      border: var(--line) solid var(--pop);
+      padding: 0.6rem 0.8rem;
+      margin-bottom: 0.8rem;
+      font-size: 0.8rem;
+    }
+
+    .modal label {
+      display: block;
+      margin: 0.7rem 0 0.25rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      font-weight: 700;
+      color: var(--pop);
+    }
+    .modal input, .modal select, .modal textarea {
+      width: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      border: var(--line) solid var(--fg);
+      padding: 0.5rem 0.7rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 0.95rem;
+    }
+    .modal input:focus, .modal select:focus, .modal textarea:focus {
+      outline: 2px solid var(--pop);
+      outline-offset: -2px;
+    }
+    .modal textarea { min-height: 60px; resize: vertical; }
+    /* Campo con error: borde rojo + sombra interior sutil */
+    .modal input.invalid, .modal select.invalid, .modal textarea.invalid {
+      border-color: #ff5050;
+      box-shadow: inset 0 0 0 1px #ff5050;
+    }
+    .modal label.invalid { color: #ff5050; }
+
+    /* Filas de 2 columnas */
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.6rem;
+    }
+    @media (max-width: 480px) {
+      .form-row-2 { grid-template-columns: 1fr; gap: 0; }
+    }
+
+    /* Footer pegado abajo con botón Enviar */
+    .modal-foot {
+      padding: 1rem 1.4rem 1.2rem;
+      border-top: var(--line) solid var(--pop);
+      background: var(--bg);
+    }
+    .modal-submit {
+      width: 100%;
+      background: var(--pop);
+      color: var(--bg);
+      border: var(--line-thick) solid var(--pop);
+      padding: 0.85rem;
+      font-family: 'Anton', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .modal-submit:hover:not(:disabled) { background: var(--bg); color: var(--pop); }
+    .modal-submit:disabled { opacity: 0.6; cursor: wait; }
+    .modal-foot-nota {
+      font-size: 0.7rem;
+      opacity: 0.55;
+      margin-top: 0.6rem;
+      text-align: center;
+    }
+
+    /* Responsive */
+    @media (max-width: 700px) {
+      .cal-dia { min-height: 75px; }
+      .cal-num { font-size: 0.9rem; padding: 0.2rem 0.3rem; }
+      .cal-tramo {
+        padding: 0.2rem 0.3rem;
+        font-size: 0.6rem;
+      }
+      .cal-cabecera-dia { padding: 0.4rem 0.2rem; font-size: 0.65rem; }
+      .cal-tramos { padding: 0 0.2rem 0.2rem; gap: 1px; }
+    }
+    @media (max-width: 480px) {
+      .cal-tramo .tramo-label { display: none; }
+      .cal-dia { min-height: 70px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Barra superior simple -->
+<header class="bar">
+  <a href="/" style="font-family:'Anton',sans-serif; font-size:1.4rem; letter-spacing:0.04em;">DJ ALMEi</a>
+  <a href="/" class="meta">← Volver</a>
+</header>
+
+<main class="cal-wrap">
+  <div class="cal-header">
+    <div>
+      <h1>Calendario</h1>
+      <div class="subtitle">Mira las fechas libres · Pide presupuesto</div>
+    </div>
+  </div>
+
+  <div class="cal-aviso" id="cal-aviso" style="display:none;">
+    <strong>Importante</strong><br>
+    <span id="aviso-texto"></span>
+  </div>
+
+  <div class="cal-leyenda">
+    <span class="leyenda-item"><span class="leyenda-cuadro leyenda-libre"></span> Libre</span>
+    <span class="leyenda-item"><span class="leyenda-cuadro leyenda-consultar"></span> Consultar</span>
+    <span class="leyenda-item"><span class="leyenda-cuadro leyenda-ocupado"></span> Ocupado</span>
+    <span class="leyenda-item"><span class="leyenda-cuadro leyenda-reservada"></span> Reservada</span>
+  </div>
+
+  <div class="cal-nav">
+    <button class="cal-btn-nav" id="prev">← Anterior</button>
+    <div class="cal-mes" id="mes-actual"></div>
+    <button class="cal-btn-nav" id="next">Siguiente →</button>
+  </div>
+
+  <div class="cal-grid" id="cal-grid"></div>
+
+  <a href="/" class="cal-volver">← Volver al inicio</a>
+</main>
+
+<!-- Modal con formulario de presupuesto -->
+<div class="modal-bg" id="modal-bg">
+  <form class="modal" id="presupuesto-form" novalidate>
+    <!-- Header pegado arriba: título + fecha + cerrar -->
+    <div class="modal-head">
+      <button class="modal-cerrar" id="modal-cerrar" type="button" aria-label="Cerrar">✕</button>
+      <h2>Pedir presupuesto</h2>
+      <div class="modal-fecha" id="modal-fecha"></div>
+    </div>
+
+    <!-- Cuerpo scrollable -->
+    <div class="modal-body" id="modal-body">
+      <div class="modal-aviso" id="modal-aviso" style="display:none;"></div>
+
+      <!-- Campos hidden Web3Forms -->
+      <input type="hidden" name="access_key" id="w3f-key" />
+      <input type="hidden" name="subject" id="w3f-subject" value="" />
+      <input type="hidden" name="from_name" value="Calendario djalmei.es" />
+      <input type="hidden" name="redirect" value="false" />
+      <input type="checkbox" name="botcheck" style="display:none;" tabindex="-1" autocomplete="off" />
+      <input type="hidden" name="fecha_evento" id="w3f-fecha" value="" />
+      <input type="hidden" name="tramo_horario" id="w3f-tramo" value="" />
+
+      <label for="f-evento">Tipo de evento *</label>
+      <select id="f-evento" name="tipo_evento" required>
+        <option value="">— Elige uno —</option>
+        <option>Boda</option>
+        <option>Festas patronais / verbena</option>
+        <option>Cumpleaños</option>
+        <option>Fiesta privada</option>
+        <option>Evento de empresa</option>
+        <option>Sala / discoteca</option>
+        <option>Otro</option>
+      </select>
+
+      <label for="f-lugar">Lugar / población del evento *</label>
+      <input type="text" id="f-lugar" name="lugar" placeholder="Ej: Tomiño, Vigo, Pontevedra..." required />
+
+      <div class="form-row-2">
+        <div>
+          <label for="f-nombre">Tu nombre *</label>
+          <input type="text" id="f-nombre" name="nombre" placeholder="Nombre y apellidos" required />
+        </div>
+        <div>
+          <label for="f-asistentes">Nº asistentes aprox.</label>
+          <input type="number" id="f-asistentes" name="asistentes" min="1" placeholder="Opcional" />
+        </div>
+      </div>
+
+      <p style="font-size:0.7rem;opacity:0.7;margin:0.9rem 0 0.2rem;text-transform:uppercase;letter-spacing:0.1em;">
+        Contacto * (email o teléfono, mínimo uno)
+      </p>
+      <div class="form-row-2">
+        <div>
+          <label for="f-email" style="margin-top:0.3rem;">Email</label>
+          <input type="email" id="f-email" name="email" placeholder="tu@email.com" />
+        </div>
+        <div>
+          <label for="f-tel" style="margin-top:0.3rem;">Teléfono</label>
+          <input type="tel" id="f-tel" name="telefono" placeholder="6XX XXX XXX" />
+        </div>
+      </div>
+
+      <label for="f-com">Comentarios</label>
+      <textarea id="f-com" name="comentarios" placeholder="Horario más concreto, estilo musical, dudas..."></textarea>
+
+      <div class="form-error" id="form-error" style="color:#ff5050;font-size:0.85rem;margin-top:0.7rem;min-height:1.2em;"></div>
+    </div>
+
+    <!-- Estado: éxito / preview (oculto por defecto, sustituye al body) -->
+    <div id="form-resultado" style="display:none;text-align:center;padding:2.5rem 1.5rem;">
+      <div id="form-resultado-icono" style="font-size:3rem;margin-bottom:1rem;"></div>
+      <div id="form-resultado-titulo" style="font-family:'Anton',sans-serif;font-size:1.6rem;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.5rem;"></div>
+      <div id="form-resultado-msg" style="font-size:0.95rem;opacity:0.85;"></div>
+    </div>
+
+    <!-- Footer pegado abajo: botón Enviar siempre visible -->
+    <div class="modal-foot" id="modal-foot">
+      <button type="submit" class="modal-submit" id="form-submit">Enviar petición →</button>
+      <p class="modal-foot-nota">Respondo en menos de 24h con presupuesto y disponibilidad confirmada.</p>
+    </div>
+  </form>
+</div>
+
+<script>
+  const NOMBRES_MES = ['Enero','Febrero','Marzo','Abril','Mayo','Junio',
+                       'Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+  const NOMBRES_DIA = ['Lun','Mar','Mié','Jue','Vie','Sáb','Dom'];
+
+  let datos = { fechas: {}, info_publica: {} };
+  let mesVisible = new Date();  // se ajusta al cargar
+  let HOY = new Date();
+  HOY.setHours(0,0,0,0);
+
+  // Sustituye {lugar} y otros placeholders del JSON con valores reales
+  function sustituir(txt) {
+    if (!txt) return '';
+    const lugar = (datos.info_publica && datos.info_publica.residencia && datos.info_publica.residencia.lugar) || '';
+    return txt.replace(/\{lugar\}/g, lugar);
+  }
+
+  async function cargarDatos() {
+    try {
+      const r = await fetch('data/calendario.json?_=' + Date.now());
+      datos = await r.json();
+    } catch (e) {
+      console.error('No se pudo cargar el calendario:', e);
+    }
+    // Aviso público de residencia (si lo hay)
+    const res = datos.info_publica && datos.info_publica.residencia;
+    if (res && res.aviso) {
+      document.getElementById('cal-aviso').style.display = 'block';
+      document.getElementById('aviso-texto').textContent = sustituir(res.aviso);
+    }
+    // Arrancar en el mes con primera fecha disponible (o mes actual si no hay datos)
+    const primeras = Object.keys(datos.fechas || {}).sort();
+    if (primeras.length) {
+      mesVisible = new Date(primeras[0] + 'T00:00:00');
+    }
+    render();
+  }
+
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function isoFecha(d) {
+    return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate());
+  }
+
+  function render() {
+    const y = mesVisible.getFullYear();
+    const m = mesVisible.getMonth();
+    document.getElementById('mes-actual').textContent =
+      NOMBRES_MES[m] + ' ' + y;
+
+    // Lunes = 1, Domingo = 0 → reordenar para que la semana empiece en lunes
+    const primerDia = new Date(y, m, 1);
+    let primerDiaSemana = (primerDia.getDay() + 6) % 7;  // 0=lun..6=dom
+    const diasEnMes = new Date(y, m+1, 0).getDate();
+
+    const grid = document.getElementById('cal-grid');
+    grid.innerHTML = '';
+
+    // Cabecera días
+    NOMBRES_DIA.forEach(d => {
+      const h = document.createElement('div');
+      h.className = 'cal-cabecera-dia';
+      h.textContent = d;
+      grid.appendChild(h);
+    });
+
+    // Celdas vacías hasta el primer día
+    for (let i = 0; i < primerDiaSemana; i++) {
+      const c = document.createElement('div');
+      c.className = 'cal-dia fuera-mes';
+      grid.appendChild(c);
+    }
+
+    // Días del mes
+    for (let dia = 1; dia <= diasEnMes; dia++) {
+      const d = new Date(y, m, dia);
+      const iso = isoFecha(d);
+      const esPasado = d < HOY;
+      const esHoy = d.getTime() === HOY.getTime();
+
+      const info = datos.fechas[iso] || { tarde: 'libre', noche: 'libre', nota: '' };
+
+      const celda = document.createElement('div');
+      celda.className = 'cal-dia' + (esPasado ? ' pasado' : '') + (esHoy ? ' hoy' : '');
+
+      const num = document.createElement('div');
+      num.className = 'cal-num';
+      num.textContent = dia;
+      celda.appendChild(num);
+
+      const tramos = document.createElement('div');
+      tramos.className = 'cal-tramos';
+
+      const notaFinal = sustituir(info.nota || '');
+      ['tarde','noche'].forEach(tramo => {
+        const estado = esPasado ? 'ocupado' : (info[tramo] || 'libre');
+        const t = document.createElement('div');
+        t.className = 'cal-tramo estado-' + estado;
+        t.dataset.nota = notaFinal;
+        t.innerHTML = '<span class="tramo-label">' + tramo + '</span><span class="tramo-info"></span>';
+        if (notaFinal) t.title = notaFinal;
+
+        if (!esPasado && (estado === 'libre' || estado === 'consultar')) {
+          t.onclick = () => abrirModal(iso, tramo, estado, notaFinal);
+        }
+        tramos.appendChild(t);
+      });
+      celda.appendChild(tramos);
+      grid.appendChild(celda);
+    }
+  }
+
+  function abrirModal(iso, tramo, estado, nota) {
+    const d = new Date(iso + 'T00:00:00');
+    const txt = NOMBRES_DIA[(d.getDay()+6)%7] + ' ' + d.getDate() + ' ' +
+                NOMBRES_MES[d.getMonth()].toLowerCase() + ' ' + d.getFullYear() +
+                ' · ' + tramo.toUpperCase();
+    document.getElementById('modal-fecha').textContent = txt;
+
+    // Rellenar campos hidden del form
+    document.getElementById('w3f-fecha').value = txt;
+    document.getElementById('w3f-tramo').value = tramo;
+
+    const aviso = document.getElementById('modal-aviso');
+    if (estado === 'consultar') {
+      let html = '<strong>⚠️ Disponibilidad sin confirmar.</strong> Tengo otra petición en curso para esta franja. Envíame los datos y te confirmo en cuanto pueda.';
+      if (nota) html += '<br><br>' + nota;
+      aviso.innerHTML = html;
+      aviso.style.display = 'block';
+    } else if (nota) {
+      aviso.innerHTML = nota;
+      aviso.style.display = 'block';
+    } else {
+      aviso.style.display = 'none';
+    }
+
+    // Asegurar que se ve el form (no el resultado de un envío previo)
+    document.getElementById('modal-body').style.display = '';
+    document.getElementById('modal-foot').style.display = '';
+    document.getElementById('form-resultado').style.display = 'none';
+    document.getElementById('form-error').textContent = '';
+    document.getElementById('form-submit').disabled = false;
+    document.getElementById('form-submit').textContent = 'Enviar petición →';
+
+    document.getElementById('modal-bg').classList.add('open');
+
+    // Quitar el fade de scroll si no hay overflow (todo cabe en pantalla)
+    setTimeout(() => {
+      const body = document.getElementById('modal-body');
+      if (body.scrollHeight <= body.clientHeight + 2) {
+        body.classList.add('no-fade');
+      } else {
+        body.classList.remove('no-fade');
+      }
+    }, 30);
+  }
+
+  // ===== Web3Forms config =====
+  // Access key pública del formulario "DJ ALMEI CALENDARIO" en web3forms.com.
+  // El email de destino se configura en el panel de Web3Forms (linked: info@djalmei.es).
+  // Para regenerarla: panel de Web3Forms → Form Setup → botón de regenerar.
+  const WEB3FORMS_KEY = '096cc005-f58b-4dd3-a0ea-bb0864ced126';
+
+  function cerrarModal() {
+    document.getElementById('modal-bg').classList.remove('open');
+    // Reset al cerrar
+    document.getElementById('presupuesto-form').reset();
+    document.getElementById('modal-body').style.display = '';
+    document.getElementById('modal-foot').style.display = '';
+    document.getElementById('form-resultado').style.display = 'none';
+    document.getElementById('form-error').textContent = '';
+  }
+  document.getElementById('modal-cerrar').onclick = cerrarModal;
+  document.getElementById('modal-bg').onclick = e => {
+    if (e.target.id === 'modal-bg') cerrarModal();
+  };
+
+  // Limpia clase invalid cuando el usuario empieza a escribir
+  document.getElementById('presupuesto-form').addEventListener('input', e => {
+    if (e.target.classList.contains('invalid')) {
+      e.target.classList.remove('invalid');
+    }
+  });
+  document.getElementById('presupuesto-form').addEventListener('change', e => {
+    if (e.target.classList.contains('invalid')) {
+      e.target.classList.remove('invalid');
+    }
+  });
+
+  // ===== Submit del formulario =====
+  document.getElementById('presupuesto-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const err = document.getElementById('form-error');
+    err.textContent = '';
+
+    // Limpiar marcas de validación previas
+    form.querySelectorAll('.invalid').forEach(el => el.classList.remove('invalid'));
+
+    const evento = form.tipo_evento.value.trim();
+    const lugar = form.lugar.value.trim();
+    const nombre = form.nombre.value.trim();
+    const email = form.email.value.trim();
+    const tel = form.telefono.value.trim();
+
+    const fallos = [];
+
+    if (!evento) { form.tipo_evento.classList.add('invalid'); fallos.push('tipo de evento'); }
+    if (!lugar)  { form.lugar.classList.add('invalid');       fallos.push('lugar'); }
+    if (!nombre) { form.nombre.classList.add('invalid');      fallos.push('nombre'); }
+    if (!email && !tel) {
+      form.email.classList.add('invalid');
+      form.telefono.classList.add('invalid');
+      fallos.push('email o teléfono');
+    }
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      form.email.classList.add('invalid');
+      fallos.push('email válido');
+    }
+
+    if (fallos.length) {
+      err.textContent = 'Falta rellenar: ' + fallos.join(', ') + '.';
+      // Focus en el primer campo inválido y hacer scroll si hace falta
+      const primero = form.querySelector('.invalid');
+      if (primero) {
+        primero.focus();
+        primero.scrollIntoView({behavior: 'smooth', block: 'center'});
+      }
+      return;
+    }
+
+    // Rellenar campos hidden
+    document.getElementById('w3f-key').value = WEB3FORMS_KEY;
+    const fecha = form.fecha_evento.value;
+    const tramo = form.tramo_horario.value;
+    document.getElementById('w3f-subject').value =
+      `[Calendario] ${evento} · ${fecha} ${tramo} · ${lugar}`;
+
+    const btn = document.getElementById('form-submit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    // Si no hay key configurada → modo preview
+    if (!WEB3FORMS_KEY) {
+      const datos = Object.fromEntries(new FormData(form).entries());
+      console.warn('[PREVIEW] Form sin enviar — falta WEB3FORMS_KEY. Datos:', datos);
+      mostrarResultado('preview', '🚧', 'Modo preview',
+        'Aún no se ha configurado Web3Forms. Cuando esté listo, este envío llegará a info@djalmei.es. Mira la consola del navegador para ver los datos.');
+      return;
+    }
+
+    try {
+      const r = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const data = await r.json();
+      if (r.ok && data.success) {
+        mostrarResultado('ok', '✓', '¡Petición enviada!',
+          'Te responderé en menos de 24h con presupuesto y disponibilidad confirmada.');
+      } else {
+        throw new Error(data.message || 'Error desconocido');
+      }
+    } catch (e) {
+      console.error(e);
+      err.textContent = 'No se pudo enviar. Revisa la conexión o escríbeme por WhatsApp: +34 644 67 17 44';
+      btn.disabled = false;
+      btn.textContent = 'Enviar petición →';
+    }
+  });
+
+  function mostrarResultado(estado, icono, titulo, msg) {
+    document.getElementById('modal-body').style.display = 'none';
+    document.getElementById('modal-foot').style.display = 'none';
+    document.getElementById('form-resultado').style.display = 'block';
+    document.getElementById('form-resultado-icono').textContent = icono;
+    document.getElementById('form-resultado-icono').style.color =
+      estado === 'ok' ? 'var(--pop)' : estado === 'preview' ? 'var(--pop)' : '#ff5050';
+    document.getElementById('form-resultado-titulo').textContent = titulo;
+    document.getElementById('form-resultado-msg').textContent = msg;
+  }
+
+  document.getElementById('prev').onclick = () => {
+    mesVisible = new Date(mesVisible.getFullYear(), mesVisible.getMonth()-1, 1);
+    render();
+  };
+  document.getElementById('next').onclick = () => {
+    mesVisible = new Date(mesVisible.getFullYear(), mesVisible.getMonth()+1, 1);
+    render();
+  };
+
+  cargarDatos();
+</script>
+
+</body>
+</html>
