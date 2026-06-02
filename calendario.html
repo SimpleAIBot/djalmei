@@ -649,7 +649,7 @@
         if (notaFinal) t.title = notaFinal;
 
         if (!esPasado && (estado === 'libre' || estado === 'consultar')) {
-          t.onclick = () => abrirModal(iso, tramo, estado, notaFinal);
+          t.onclick = () => abrirModal(iso, tramo, estado, info);
         }
         tramos.appendChild(t);
       });
@@ -658,7 +658,7 @@
     }
   }
 
-  function abrirModal(iso, tramo, estado, nota) {
+  function abrirModal(iso, tramo, estado, info) {
     const d = new Date(iso + 'T00:00:00');
     const txt = NOMBRES_DIA[(d.getDay()+6)%7] + ' ' + d.getDate() + ' ' +
                 NOMBRES_MES[d.getMonth()].toLowerCase() + ' ' + d.getFullYear() +
@@ -669,14 +669,34 @@
     document.getElementById('w3f-fecha').value = txt;
     document.getElementById('w3f-tramo').value = tramo;
 
+    // Detectar si el otro tramo del día está reservado/ocupado para contextualizar
+    const otroTramo = tramo === 'tarde' ? 'noche' : 'tarde';
+    const otroEstado = info[otroTramo] || 'libre';
+    const otroOcupado = otroEstado === 'reservada' || otroEstado === 'ocupado';
+    const nota = sustituir(info.nota || '');
+    const esteLabel = tramo === 'tarde' ? 'la tarde' : 'la noche';
+    const otroLabel = otroTramo === 'tarde' ? 'esa tarde' : 'esa noche';
+
     const aviso = document.getElementById('modal-aviso');
+    const avisos = [];
+
     if (estado === 'consultar') {
-      let html = '<strong>⚠️ Disponibilidad sin confirmar.</strong> Tengo otra petición en curso para esta franja. Envíame los datos y te confirmo en cuanto pueda.';
-      if (nota) html += '<br><br>' + nota;
-      aviso.innerHTML = html;
-      aviso.style.display = 'block';
+      avisos.push('<strong>⚠️ Disponibilidad sin confirmar.</strong> Tengo otra petición en curso para esta franja. Envíame los datos y te confirmo en cuanto pueda.');
+    }
+
+    if (otroOcupado) {
+      // Caso: la otra parte del día está cogida → solo puedo coger esta si es cerca
+      let msg = `<strong>⚠️ Importante:</strong> ${otroLabel} ya tengo otro evento`;
+      if (nota) msg += ` en <strong>${nota}</strong>`;
+      msg += `. Puedo coger ${esteLabel} <strong>solo si tu evento es a ~1h de coche</strong> del mismo sitio. Si está más lejos, indícalo en comentarios y te lo confirmo.`;
+      avisos.push(msg);
     } else if (nota) {
-      aviso.innerHTML = nota;
+      // Sin tramo ocupado pero con nota libre → mostrar la nota tal cual
+      avisos.push(nota);
+    }
+
+    if (avisos.length) {
+      aviso.innerHTML = avisos.join('<br><br>');
       aviso.style.display = 'block';
     } else {
       aviso.style.display = 'none';
