@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-06-02T18:53:43",
+  "actualizado": "2026-06-02T19:16:38",
   "info_publica": {
     "residencia": {
       "lugar": "A Guarda (Pontevedra)",
-      "aviso": "Algunos días tengo un tramo (tarde o noche) reservado en un sitio concreto. En esos días puedo coger el otro tramo solo si tu evento es a ~1h de coche del mismo sitio. Funciona en ambos sentidos: si reservé la noche → la tarde solo cerca; si reservé la tarde → la noche solo cerca. Al clicar una fecha verás el aviso si aplica."
+      "aviso": "Viernes y sábados noche reservados por residencia en disco en {lugar}. Las tardes podrían encajar si el evento es cerca."
     }
   },
   "fechas": {
