@@ -14,3 +14,9 @@ desktop.ini
 
 # Config local de Claude Code
 .claude/
+
+# Firma de email (no es parte de la web)
+firma-email.html
+
+# Material de impresión puntual (backdrop, etc.) — solo local
+print/
