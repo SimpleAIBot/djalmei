@@ -1,9 +1,9 @@
 {
-  "actualizado": "2026-06-03T09:04:17",
+  "actualizado": "2026-06-03T09:05:33",
   "info_publica": {
     "residencia": {
       "lugar": "A Guarda (Pontevedra)",
-      "aviso": "Viernes y sábados noche reservados por residencia en disco en {lugar}. Las tardes podrían encajar si el evento es cerca."
+      "aviso": "Si las noches están reservadas, las tardes podrían encajar si el evento es cerca."
     }
   },
   "fechas": {
