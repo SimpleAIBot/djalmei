@@ -45,6 +45,7 @@
     "name": "DJ ALMEi",
     "alternateName": ["Djalmei", "DJ Almei", "almei_dj"],
     "description": "DJ profesional en Vigo y toda Galicia. Música para bodas, cumpleaños, fiestas privadas, salas, eventos de empresa y bailes.",
+    "slogan": "DJ en Vigo. Pincho en tu fiesta.",
     "url": "https://www.djalmei.es/",
     "image": "https://www.djalmei.es/images/hero.webp",
     "logo": "https://www.djalmei.es/images/logo.png",
@@ -62,6 +63,14 @@
       "latitude": 42.2406,
       "longitude": -8.7207
     },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "10:00",
+        "closes": "22:00"
+      }
+    ],
     "areaServed": [
       {"@type": "City", "name": "Vigo"},
       {"@type": "City", "name": "Pontevedra"},
@@ -85,6 +94,79 @@
       {"@type": "Offer", "name": "DJ para bailes y verbenas"},
       {"@type": "Offer", "name": "DJ para tardeos"},
       {"@type": "Offer", "name": "DJ para bodas"}
+    ]
+  }
+  </script>
+
+  <!-- Datos estructurados: servicios específicos (uno por tipo de evento, para SEO de cola larga) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://www.djalmei.es/#dj-bodas",
+        "serviceType": "DJ para bodas",
+        "name": "DJ para bodas en Vigo y Galicia",
+        "description": "DJ profesional para bodas en Vigo, Pontevedra, Rías Baixas y toda Galicia. Cubrimos ceremonia, cóctel, banquete y barra libre. Equipo propio (sonido, micros para discursos, iluminación de cabina). Lista de canciones imprescindibles y a evitar consensuada con los novios.",
+        "provider": {"@id": "https://www.djalmei.es/#dj"},
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Galicia"},
+          {"@type": "City", "name": "Vigo"},
+          {"@type": "City", "name": "Pontevedra"}
+        ],
+        "category": "Wedding DJ"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.djalmei.es/#dj-festas",
+        "serviceType": "DJ para festas patronais e verbenas",
+        "name": "DJ para festas patronais y verbenas en Galicia",
+        "description": "DJ para festas patronais, verbenas tradicionais e romarías en toda Galicia. Sesións longas adaptadas a todas as idades. Repertorio mixto: paso doble, vermú, verbena galega, latino, anos 80-90, comercial actual e nocturno. Música en galego e castelán. Equipo dimensionado para exteriores.",
+        "provider": {"@id": "https://www.djalmei.es/#dj"},
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Galicia"},
+          {"@type": "AdministrativeArea", "name": "Baixo Miño"},
+          {"@type": "AdministrativeArea", "name": "Rías Baixas"}
+        ],
+        "category": "Event DJ"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.djalmei.es/#dj-cumples",
+        "serviceType": "DJ para cumpleaños y fiestas privadas",
+        "name": "DJ para cumpleaños y fiestas privadas",
+        "description": "DJ para cumpleaños, despedidas, aniversarios y fiestas privadas. Música elegida a tu gusto, ecualización para casa, finca, pazo o local alquilado. Equipo propio. Sesión adaptada al perfil de los invitados.",
+        "provider": {"@id": "https://www.djalmei.es/#dj"},
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Galicia"}
+        ],
+        "category": "Private Party DJ"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.djalmei.es/#dj-empresa",
+        "serviceType": "DJ para eventos de empresa",
+        "name": "DJ para eventos de empresa y corporativos",
+        "description": "DJ para cenas de empresa, fiestas de Navidad, presentaciones de producto, inauguraciones, convenciones y team building en Galicia. Música ambiente y baile. Equipo profesional con micros para discursos. Factura formal con IVA.",
+        "provider": {"@id": "https://www.djalmei.es/#dj"},
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Galicia"}
+        ],
+        "category": "Corporate Event DJ"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://www.djalmei.es/#dj-sala",
+        "serviceType": "DJ residente para sala, tardeo o discoteca",
+        "name": "DJ residente para sala y tardeo",
+        "description": "DJ residente para salas, discotecas, tardeos y locales de Galicia. Sesiones largas con flujo: house, latin house, comercial actual, hits 2000-2010, reguetón, pop, dance. Adaptable al perfil del local y al horario.",
+        "provider": {"@id": "https://www.djalmei.es/#dj"},
+        "areaServed": [
+          {"@type": "AdministrativeArea", "name": "Galicia"}
+        ],
+        "category": "Club DJ"
+      }
     ]
   }
   </script>
