@@ -14,6 +14,8 @@ Plan vivo. Cuando un punto se cierra, marca con ✓ y deja la fecha entre parén
 - **`sitemap.xml`** con home (weekly, 1.0) + calendario (daily, 0.9)
 - **`robots.txt`** permite todo y apunta al sitemap
 - **`/calendario.html`** SEO completo: title con keywords, description, canonical, OG/Twitter, fix de `noindex` heredado de pruebas (2026-06-03)
+- **`/calendario.html` reconvertida en página de contratación** (2026-09-16). El calendario público se retiró: solo era fiable si se actualizaba a mano y llevaba 3 meses sin tocar, mostrando todo el otoño como libre. Se mantiene la URL porque 171 páginas enlazan a ella y GitHub Pages no permite 301. Ahora targetea "contratar dj vigo" / "presupuesto dj galicia", que son keywords de intención de compra mucho mejores que "calendario". Schema `ContactPage` + `BreadcrumbList` + `FAQPage`
+- **`/eventos-empresa.html`** (2026-09-16): landing B2B con foco de temporada en cenas de Navidad. Tipos de evento, guion de la noche por tramos de volumen, bloque administrativo (factura con IVA, presupuesto por escrito), zona y 6 FAQ. Schema `Service` + `OfferCatalog` + `BreadcrumbList` + `FAQPage`. La banda de Navidad se enciende sola de septiembre a diciembre vía JS, así que no hay que acordarse de quitarla en enero
 - **Google Business Profile**: alta + verificación + descripción + horario + zona + productos (6 servicios con copy + categoría + URL al calendario)
 - **Google Search Console**: alta + sitemap enviado + indexación pedida para calendario
 
@@ -46,10 +48,10 @@ Por orden de impacto comercial:
    - Cobertura por comarcas (Baixo Miño, Rías Baixas, etc.)
    - Foto de sesión de verbena con público
 
-3. **`/eventos-empresa.html`** — bodas y festas son B2C; empresa es B2B
-   - Factura formal, IVA, profesionalidad, discreción
-   - Casos: cena de empresa, fiesta navidad, presentación, team building
-   - Pedir presupuesto formal
+3. ~~**`/eventos-empresa.html`**~~ ✓ HECHA (2026-09-16). Pendiente de mejora cuando haya material:
+   - Fotos reales de cena de empresa / evento corporativo (ahora usa `hero.webp` genérica)
+   - Seguro de responsabilidad civil: si lo tienes, mencionarlo — pesa mucho en decisiones B2B
+   - Logos de empresas para las que hayas trabajado (con su permiso)
 
 ### Schema.org `Event` (sesiones programadas concretas)
 
