@@ -1,87 +1,72 @@
 # SEO — DJ ALMEi · djalmei.es
 
-Plan vivo. Cuando un punto se cierra, marca con ✓ y deja la fecha entre paréntesis.
+Plan vivo y manual de directrices para agentes IA y desarrollo. Cuando un punto se cierra, marca con ✓ y deja la fecha entre paréntesis.
+
+---
+
+## 🏆 Estado y Posicionamiento Actual (Octubre 2026)
+
+- **`DJ Vigo`** ➔ **#1 Posición absoluta en Google** 🥇
+- **`Cena navidad vigo dj`** ➔ **#1 Posición absoluta en Google** 🥇
+- **Autoridad local en Vigo/comarca:** Imbatible y plenamente consolidada.
+
+> [!CAUTION]
+> ### 🛑 PROTOCOLO OBLIGATORIO PARA AGENTES IA (REGLAS DE ORO)
+> 1. **PROHIBIDO tocar los títulos, H1 o meta description de la Home (`index.html`) y `/eventos-empresa.html`** sin aprobación explícita. Están en el puesto #1 para las búsquedas comerciales de mayor valor económico.
+> 2. **NO canibalizar la intención de búsqueda (Search Intent):** Las páginas del directorio `/festas-galicia/` deben responder primero al usuario que busca la fiesta del concello (`Festas en {Concello} · Calendario`). DJ ALMEi figura como mantenedor y opción de contratación recomendada, **no secuestrando el H1 con "DJ para festas..."**.
+> 3. **PROHIBIDO el keyword stuffing y textos clónicos:** Nunca generar bloques de texto masivo idéntico (como el antiguo `.seo-final`) que puedan ser calificados por Google como *Doorway Pages* o *Scaled Content Abuse*.
+> 4. **GitHub Pages no tiene redirecciones 301 server-side:** Nunca cambies la URL de un HTML indexado si hay enlaces externos o productos apuntando a ella.
+
+---
+
+## 🔍 Análisis de la Fluctuación de Clics (Otoño / Invierno)
+
+La bajada de clics detectada en octubre **no se debe a una pérdida de posiciones en el core del negocio** (que sigue #1), sino a:
+1. **Estacionalidad natural gallega:** Entre mayo y septiembre, el directorio `/festas-galicia/` (168 concellos) atraía miles de búsquedas por el pico estival de verbenas y fiestas patronales. En otoño/invierno la búsqueda de fiestas de pueblo cae más de un 85% en Galicia.
+2. **Eventos de 2026 caducados:** A finales de octubre, la inmensa mayoría de las fichas muestran "Edición pasada", lo que reduce el CTR y el tiempo en página.
+3. **Sobreoptimización en `generar_festas_galicia.py` (Commit `d07adcc`):** Forzar "DJ" en los títulos de fiesta alejó a vecinos que buscaban fechas informativas.
 
 ---
 
 ## ✅ Hecho
 
-- **HTTPS** (GitHub Pages lo da gratis vía Let's Encrypt)
-- **Meta básico** en home: title, description, keywords, theme-color, canonical
-- **Open Graph + Twitter Card** en home y `/calendario.html`
-- **JSON-LD `LocalBusiness`** con teléfono, geo, áreas servidas, sameAs, makesOffer
-- **JSON-LD `FAQPage`** con 4-5 preguntas frecuentes
-- **`sitemap.xml`** con home (weekly, 1.0) + calendario (daily, 0.9)
-- **`robots.txt`** permite todo y apunta al sitemap
-- **`/calendario.html`** SEO completo: title con keywords, description, canonical, OG/Twitter, fix de `noindex` heredado de pruebas (2026-06-03)
-- **`/calendario.html` reconvertida en página de contratación** (2026-09-16). El calendario público se retiró: solo era fiable si se actualizaba a mano y llevaba 3 meses sin tocar, mostrando todo el otoño como libre. Se mantiene la URL porque 171 páginas enlazan a ella y GitHub Pages no permite 301. Ahora targetea "contratar dj vigo" / "presupuesto dj galicia", que son keywords de intención de compra mucho mejores que "calendario". Schema `ContactPage` + `BreadcrumbList` + `FAQPage`
-- **`/eventos-empresa.html`** (2026-09-16): landing B2B con foco de temporada en cenas de Navidad. Tipos de evento, guion de la noche por tramos de volumen, bloque administrativo (factura con IVA, presupuesto por escrito), zona y 6 FAQ. Schema `Service` + `OfferCatalog` + `BreadcrumbList` + `FAQPage`. La banda de Navidad se enciende sola de septiembre a diciembre vía JS, así que no hay que acordarse de quitarla en enero
-- **Google Business Profile**: alta + verificación + descripción + horario + zona + productos (6 servicios con copy + categoría + URL al calendario)
-- **Google Search Console**: alta + sitemap enviado + indexación pedida para calendario
+- **HTTPS** (GitHub Pages vía Let's Encrypt)
+- **Meta básicos y Open Graph** en home, bodas, empresa y calendario
+- **JSON-LD `LocalBusiness`** completo en Home
+- **JSON-LD `Service`** individualizado para bodas, festas patronais, cumpleaños, empresa y salas en la Home (2026-06)
+- **JSON-LD `FAQPage`** y **`BreadcrumbList`**
+- **`sitemap.xml`** y **`robots.txt`** optimizados
+- **`/bodas.html`** landing dedicada SEO completa + schema `Service` (2026-06-03)
+- **`/calendario.html`** reconvertida en página de contratación ("contratar dj vigo" / "presupuesto dj galicia") con formulario y FAQ (2026-09-16)
+- **`/eventos-empresa.html`** landing B2B con foco en cenas de Navidad (#1 en Google) (2026-09-16)
+- **Directorio `/festas-galicia/`** 168 páginas generadas por concello + mes + categoría (2026-06)
+- **Google Business Profile (GBP)** y **Google Search Console (GSC)** dados de alta y verificados
 
-## 🟡 Pendiente — ACCIÓN MÍA (no requiere inputs)
+---
 
-- **JSON-LD `Service`** por cada tipo de evento (bodas, festas patronais, cumpleaños, empresa, sala). Replicar el copy de los productos GBP en schema dentro del `<head>` de la home. SEO de cola larga sin necesidad de fechas concretas.
-- **Enriquecer `LocalBusiness`** existente con: `priceRange`, `aggregateRating` (cuando haya reseñas), `image` (varias), `openingHours` específicos
-- **Internal linking** desde la home a `/calendario.html` con anchor text variado ("ver fechas libres", "reserva tu fecha", "calendario de disponibilidad")
+## 🟡 Acciones en Curso — Temporada Alta Otoño/Invierno
 
-## 🔴 Pendiente — REQUIERE INPUTS / FOTOS
+### 1. Campaña Cenas de Navidad y Fin de Año (Pico comercial: Noviembre - Diciembre)
+- [x] Landing `/eventos-empresa.html` posicionada #1.
+- [ ] Reforzar en la Home y `/calendario.html` disponibilidad para Fin de Año / Cotillón en Vigo y comarcas limítrofes.
+- [ ] Promover enlaces internos desde los concellos limítrofes hacia eventos de empresa.
 
-### Páginas dedicadas (cuando haya fotos buenas de eventos)
+### 2. Captación de Bodas 2027 (Pico de contratación: Octubre - Febrero)
+- [ ] Optimizar interlinking hacia `/bodas.html` con anclajes geolocalizados: *"DJ para bodas en Vigo"*, *"DJ bodas Pontevedra"*, *"DJ pazos Rías Baixas"*.
+- [ ] Cuando haya fotos reales de bodas, sustituir las imágenes de stock.
 
-Por orden de impacto comercial:
+### 3. Reajuste del Directorio `/festas-galicia/` (En `generar_festas_galicia.py`)
+- [ ] **Restablecer el título natural en las 168 páginas:** `Festas en {Concello} · Calendario {Año} · DJ ALMEi`.
+- [ ] **Restablecer el H1:** `Festas en {Concello} · Calendario {Año}`.
+- [ ] **Eliminar el bloque repetitivo de 150 palabras `.seo-final`** para evitar banderas de *Doorway Pages*.
+- [ ] **Limpiar anclajes del pie de página:** cambiar `DJ para festas gastronómica` por `Festas gastronómicas`.
+- [ ] **Modo puente 2027:** Para fiestas concluidas en 2026, mostrar *"Edición 2026 finalizada · Próxima edición prevista: {Mes} 2027"* para mantener vivo el valor SEO.
+- [ ] **Destacar eventos inmediatos:** Magostos (noviembre), Fin de Año (diciembre), Reyes y Entroido / Carnaval 2027 (febrero).
 
-1. **`/bodas.html`** — landing dedicada
-   - Hero específico de boda + foto de cabina/pista llena en boda real
-   - Cómo trabajo: contacto → presupuesto → lista de canciones → ceremonia → cóctel → banquete → barra libre
-   - Equipo que llevo (con foto)
-   - Música: estilos, gallego sí/no, sorpresas / primer baile
-   - Zona de servicio con ciudades (links internos)
-   - FAQ específica de bodas (5-6 preguntas)
-   - Testimonios (placeholder hasta tener reseñas de Google a embebir)
-   - CTA al calendario + WhatsApp
-   - SEO: title/desc/canonical/OG + Schema.org `Service` específico + JSON-LD `BreadcrumbList`
-   - Enlazada desde home (Servicios) y desde el producto GBP "DJ para bodas"
+---
 
-2. **`/festas-patronais.html`** — mismo patrón aplicado a verbenas / festas tradicionales
-   - Repertorio en gallego, sesión vermú + sesión nocturna
-   - Cobertura por comarcas (Baixo Miño, Rías Baixas, etc.)
-   - Foto de sesión de verbena con público
+## 📈 Roadmap Continuo (Acciones del DJ)
 
-3. ~~**`/eventos-empresa.html`**~~ ✓ HECHA (2026-09-16). Pendiente de mejora cuando haya material:
-   - Fotos reales de cena de empresa / evento corporativo (ahora usa `hero.webp` genérica)
-   - Seguro de responsabilidad civil: si lo tienes, mencionarlo — pesa mucho en decisiones B2B
-   - Logos de empresas para las que hayas trabajado (con su permiso)
-
-### Schema.org `Event` (sesiones programadas concretas)
-
-Cuando tengas 2-3 sesiones futuras confirmadas y públicas (no privadas tipo bodas), me das:
-- Nombre del evento
-- Fecha y hora
-- Lugar (nombre, ciudad, dirección si pública)
-- Si lleva entrada o es libre
-- URL del evento si la hay
-
-Las meto como JSON-LD `Event` en la home. Aparecen como rich snippets en Google ("qué hacer este finde en Vigo").
-
-## 📈 Roadmap continuo (acciones del DJ)
-
-- **Reseñas Google**: pedir a clientes pasados con link directo a Google Maps. Cada reseña empuja el ranking local. Objetivo: 10 reseñas en 90 días.
-- **Backlinks locales**: bodas.net (perfil gratuito), listings de DJs Galicia, asociaciones culturales con las que colabore, prensa local (Faro de Vigo, Atlántico Diario).
-- **Publicaciones en GBP**: cada 7-15 días un post nuevo (sesión próxima, foto reciente, anuncio).
-- **Reseñas embebidas**: cuando haya >= 5 reseñas Google, embebidas en la home (widget o screenshots con schema `Review`).
-- **Sesiones / portfolio**: ir generando contenido propio en `/sesiones` con fotos y videos cortos.
-
-## 📊 Métricas que vigilar (Search Console, mensual)
-
-- Impresiones totales (crecimiento mes a mes)
-- Clics totales
-- CTR medio (objetivo > 5%)
-- Posición media de las keywords clave:
-  - "dj vigo"
-  - "dj galicia"
-  - "dj para bodas vigo"
-  - "dj festas patronais"
-  - "dj almei"
-- Cobertura: páginas indexadas vs excluidas
-- Errores móviles / Core Web Vitals
+- **Reseñas en Google Maps (Prioridad máxima):** Como la web ya está en el puesto #1 para "DJ Vigo", las reseñas de clientes reales con texto (*"contratamos a Daniel para una fiesta en Vigo..."*) son el factor #1 para que el usuario llame inmediatamente por WhatsApp.
+- **Portales de Bodas:** Alta gratuita en bodas.net con link hacia `djalmei.es/bodas.html`.
+- **Publicaciones periódicas en Google Business:** 1 post cada 10-15 días con fotos de cabina y mención a la disponibilidad para cenas de empresa y bodas.
