@@ -56,17 +56,22 @@ La bajada de clics detectada en octubre **no se debe a una pérdida de posicione
 - [ ] Cuando haya fotos reales de bodas, sustituir las imágenes de stock.
 
 ### 3. Reajuste del Directorio `/festas-galicia/` (En `generar_festas_galicia.py`)
-- [ ] **Restablecer el título natural en las 168 páginas:** `Festas en {Concello} · Calendario {Año} · DJ ALMEi`.
-- [ ] **Restablecer el H1:** `Festas en {Concello} · Calendario {Año}`.
-- [ ] **Eliminar el bloque repetitivo de 150 palabras `.seo-final`** para evitar banderas de *Doorway Pages*.
-- [ ] **Limpiar anclajes del pie de página:** cambiar `DJ para festas gastronómica` por `Festas gastronómicas`.
-- [ ] **Modo puente 2027:** Para fiestas concluidas en 2026, mostrar *"Edición 2026 finalizada · Próxima edición prevista: {Mes} 2027"* para mantener vivo el valor SEO.
-- [ ] **Destacar eventos inmediatos:** Magostos (noviembre), Fin de Año (diciembre), Reyes y Entroido / Carnaval 2027 (febrero).
+- [x] **Restablecer el título natural en las 168 páginas:** `Festas en {Concello} · Calendario {Año} · DJ ALMEi` ✓ (2026-10-31).
+- [x] **Restablecer el H1:** `Festas en {Concello} · Calendario {Año}` ✓ (2026-10-31).
+- [x] **Eliminar el bloque repetitivo de 150 palabras `.seo-final`** para evitar banderas de *Doorway Pages* ✓ (2026-10-31).
+- [x] **Limpiar anclajes del pie de página:** cambiar `DJ para festas gastronómica` por `Festas gastronómicas` ✓ (2026-10-31).
+- [x] **Modo puente 2027:** Para fiestas concluidas en 2026, mostrar *"Edición finalizada · Próxima edición estimada en 2027"* ✓ (2026-10-31).
+- [x] **Destacar eventos inmediatos:** Magostos (noviembre), Fin de Año (diciembre), Reyes y Entroido / Carnaval 2027 (febrero) ✓ (2026-10-31).
 
 ---
 
 ## 📈 Roadmap Continuo (Acciones del DJ)
 
 - **Reseñas en Google Maps (Prioridad máxima):** Como la web ya está en el puesto #1 para "DJ Vigo", las reseñas de clientes reales con texto (*"contratamos a Daniel para una fiesta en Vigo..."*) son el factor #1 para que el usuario llame inmediatamente por WhatsApp.
-- **Portales de Bodas:** Alta gratuita en bodas.net con link hacia `djalmei.es/bodas.html`.
 - **Publicaciones periódicas en Google Business:** 1 post cada 10-15 días con fotos de cabina y mención a la disponibilidad para cenas de empresa y bodas.
+
+### 📌 Plataformas y Directorios Externos (Plan para el futuro)
+- [ ] **Bodas.net (Ficha básica gratuita):** Crear perfil con fotos profesionales de cabina/pista y enlace hacia `https://www.djalmei.es/bodas.html` para captar parejas de Vigo y provincia de Pontevedra.
+- [ ] **Wallapop (Sección Servicios en Vigo/comarca):** Anuncio profesional para cumpleaños, aniversarios y fiestas privadas. Filtro con precio de salida *"Desde 180 €"*, fotos de equipo limpio y mención a web `djalmei.es` e Instagram `@almei_dj`.
+- [ ] **Milanuncios (Clasificados para fechas sueltas):** Anuncio serio enfocado a cubrir fines de semana libres de última hora (cumpleaños, fiestas de peñas). Enfoque profesional con factura legal, equipo propio y microfonía (prohibido usar "barato" o "económico").
+- [ ] **Citaciones y Directorios Locales (Refuerzo NAP):** Páginas Amarillas, QDQ o directorios locales de Vigo con nombre comercial, teléfono y web idénticos para reforzar la autoridad de negocio local.
