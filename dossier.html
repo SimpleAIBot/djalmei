@@ -118,6 +118,9 @@
       gap: 2rem;
       align-items: start;
     }
+    .demo-layout > * {
+      min-width: 0;
+    }
     .tracklist-box {
       border-radius: var(--radius);
       border: 1px solid var(--border-strong);
@@ -171,7 +174,7 @@
       .dos-grid,
       .demo-layout,
       .rider-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
       }
     }
   </style>
