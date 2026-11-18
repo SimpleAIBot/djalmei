@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- SEO -->
+  <title>Dossier DJ ALMEi · Press Kit, Demo en Directo y Salas en Galicia</title>
+  <meta name="description" content="Dossier profesional y press kit de DJ ALMEi (Vigo, Galicia). Sesión demo en directo con tracklist, salas y festivales (Villa Rosa Baiona, Nebula Vigo, MIRAFEST), bodas en pazos de Nigrán y verbenas." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0c0c0c" />
+  <link rel="canonical" href="https://www.djalmei.es/dossier.html" />
+
+  <!-- Open Graph -->
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="DJ ALMEi" />
+  <meta property="og:title" content="Dossier DJ ALMEi · Press Kit y Demo en Directo" />
+  <meta property="og:description" content="Vídeo demo en directo, tracklist, salas, festivales, bodas en pazos y festas en Galicia. Contrata a DJ ALMEi." />
+  <meta property="og:url" content="https://www.djalmei.es/dossier.html" />
+  <meta property="og:image" content="https://www.djalmei.es/images/hero.webp" />
+  <meta property="og:image:alt" content="DJ ALMEi en cabina" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Dossier DJ ALMEi · Press Kit y Demo en Directo" />
+  <meta name="twitter:description" content="Vídeo demo en directo, salas, festivales, bodas y eventos en Galicia." />
+  <meta name="twitter:image" content="https://www.djalmei.es/images/hero.webp" />
+
+  <!-- Favicon y fuentes -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Datos estructurados -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "url": "https://www.djalmei.es/dossier.html",
+    "name": "Dossier y Press Kit de DJ ALMEi",
+    "mainEntity": {
+      "@type": "Person",
+      "@id": "https://www.djalmei.es/#dj",
+      "name": "DJ ALMEi",
+      "jobTitle": "DJ Open Format",
+      "url": "https://www.djalmei.es/",
+      "sameAs": [
+        "https://www.instagram.com/almei_dj/"
+      ],
+      "homeLocation": {
+        "@type": "Place",
+        "name": "Vigo, Pontevedra, Galicia"
+      }
+    }
+  }
+  </script>
+
+  <style>
+    .dos-hero {
+      padding: clamp(3rem, 7vw, 5.5rem) var(--pad) clamp(2.5rem, 5vw, 4rem);
+      border-bottom: var(--line) solid var(--fg);
+    }
+    .dos-hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 9vw, 6.8rem);
+      line-height: 0.94;
+      text-transform: uppercase;
+      letter-spacing: -0.02em;
+      margin: 0.6rem 0 1.4rem;
+    }
+    .dos-hero .pop { color: var(--accent); }
+    .dos-lead {
+      font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+      max-width: 62ch;
+      line-height: 1.55;
+      margin-bottom: 2rem;
+    }
+
+    .dos-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .dos-card {
+      padding: clamp(1.5rem, 3vw, 2.2rem);
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+    .dos-card h3 {
+      font-family: var(--font-display);
+      font-size: clamp(1.35rem, 2.2vw, 1.7rem);
+      margin: 0 0 1rem;
+      color: var(--accent);
+    }
+    .dos-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .dos-list li {
+      padding: 0.55rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 1rem;
+      line-height: 1.45;
+      color: var(--muted);
+    }
+    .dos-list li:last-child { border-bottom: none; }
+    .dos-list strong { color: var(--fg); }
+
+    .demo-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 2rem;
+      align-items: start;
+    }
+    .tracklist-box {
+      border-radius: var(--radius);
+      border: 1px solid var(--border-strong);
+      padding: clamp(1.4rem, 2.8vw, 2rem);
+      background: var(--surface);
+      backdrop-filter: blur(10px);
+    }
+    .tracklist-box h3 {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      margin: 0 0 0.4rem;
+    }
+    .tracklist-ol {
+      margin: 1rem 0 0;
+      padding-left: 1.35rem;
+      line-height: 1.75;
+      font-size: 0.98rem;
+      color: var(--muted);
+    }
+    .tracklist-ol strong { color: var(--fg); }
+    .tracklist-ol li {
+      padding: 0.2rem 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+    }
+    .tracklist-ol li:last-child { border-bottom: none; }
+
+    .rider-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+    .rider-item {
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 1.6rem;
+    }
+    .rider-item h3 {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      margin: 0 0 0.6rem;
+    }
+    .rider-item p {
+      margin: 0;
+      line-height: 1.55;
+      color: var(--muted);
+    }
+    .rider-item a { color: var(--pop); text-decoration: underline; text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .dos-grid,
+      .demo-layout,
+      .rider-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <header class="bar bar-top">
+    <a href="/" class="brand">
+      <img src="images/logo.png" alt="DJ ALMEi" class="brand-logo" />
+    </a>
+    <nav class="nav" id="nav-menu">
+      <a href="/#servicios">Servicios</a>
+      <a href="bodas.html">Bodas</a>
+      <a href="eventos-empresa.html">Empresa</a>
+      <a href="#demo">Demo</a>
+      <a href="#trayectoria">Trayectoria</a>
+      <a href="calendario.html">Contratar</a>
+    </nav>
+    <a href="mailto:info@djalmei.es" class="cta cta-sm cta-dark cta-nav">info@djalmei.es</a>
+    <a href="https://wa.me/34644671744" target="_blank" rel="noopener" class="cta cta-sm cta-nav">
+      WHATSAPP →
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="dos-hero">
+    <p class="meta">DOSSIER &amp; PRESS KIT · VIGO / GALICIA</p>
+    <h1>
+      DJ ALMEi.<br />
+      <span class="pop">En directo.</span>
+    </h1>
+    <p class="dos-lead">
+      DJ open-format afincado en <strong>Vigo</strong> con actividad en toda
+      <strong>Galicia</strong>: discotecas, festivales, pazos de boda, cenas de empresa
+      y verbenas. Sesiones con mashups en vivo, lectura real de pista y equipo propio listo
+      para montar.
+    </p>
+    <div class="cta-row">
+      <a href="#demo" class="cta cta-lg">VER SESIÓN DEMO →</a>
+      <a href="calendario.html" class="cta cta-lg cta-dark">CONSULTAR FECHA →</a>
+      <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20he%20visto%20tu%20dossier%20y%20quiero%20consultar%20disponibilidad" target="_blank" rel="noopener" class="cta cta-lg cta-dark">WHATSAPP →</a>
+    </div>
+  </section>
+
+  <!-- DEMO EN DIRECTO + TRACKLIST -->
+  <section id="demo" class="section section-flip">
+    <div class="section-head">
+      <p class="meta">— Demo en directo</p>
+      <h2>Así sueno<br />en directo.</h2>
+    </div>
+    <div class="demo-layout">
+      <div>
+        <div class="video-wrap">
+          <video
+            class="set-video"
+            src="videos/demo-set.mp4"
+            poster="images/demo-set-poster.webp"
+            controls
+            playsinline
+            preload="metadata">
+            Tu navegador no soporta vídeo HTML5.
+          </video>
+        </div>
+        <p class="reel-note" style="margin-top:0.8rem;margin-bottom:1.5rem;">
+          Sesión demo con mashups en directo (17 min) · También disponible en
+          <a href="https://www.instagram.com/p/DcY_sMKNlHz/" target="_blank" rel="noopener">Instagram @almei_dj ↗</a>.
+        </p>
+        <div class="video-wrap">
+          <video
+            class="set-video"
+            src="videos/set-1-web.mp4"
+            poster="images/set-1-poster.webp"
+            controls
+            playsinline
+            preload="metadata">
+            Tu navegador no soporta vídeo HTML5.
+          </video>
+        </div>
+      </div>
+
+      <aside class="tracklist-box">
+        <p class="meta">— Tracklist del vídeo</p>
+        <h3>Live Mashups &amp; Reggaetón</h3>
+        <ol class="tracklist-ol">
+          <li><strong>Rompe</strong> — Daddy Yankee</li>
+          <li><strong>Choca</strong> — Plan B</li>
+          <li><strong>Tú Foto</strong> — Ozuna</li>
+          <li><strong>Parcerita</strong> — Myke Towers</li>
+          <li><strong>Ponle Música</strong> — Bryan</li>
+          <li><strong>Pierdo la Cabeza</strong> — Zion &amp; Lennox</li>
+          <li><strong>Contacto</strong> — John Pollõn &amp; C Marí</li>
+          <li><strong>A Solas (Remix)</strong> — Lunay</li>
+          <li><strong>Callaita</strong> — Bad Bunny &amp; Tainy</li>
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- TRAYECTORIA / LOCALES Y EVENTOS -->
+  <section id="trayectoria" class="section">
+    <div class="section-head">
+      <p class="meta">— Trayectoria reciente</p>
+      <h2>Salas, festivales,<br />pazos y verbenas.</h2>
+    </div>
+    <div class="dos-grid">
+      <div class="dos-card">
+        <h3>Salas y discotecas</h3>
+        <ul class="dos-list">
+          <li><strong>Villa Rosa</strong> — Baiona</li>
+          <li><strong>Nebula</strong> — Vigo</li>
+          <li><strong>Singular</strong> — A Guarda</li>
+          <li><strong>Social</strong> — A Guarda</li>
+          <li><strong>Pub Iceberg</strong> — Melide</li>
+        </ul>
+      </div>
+
+      <div class="dos-card">
+        <h3>Festivales y grandes eventos</h3>
+        <ul class="dos-list">
+          <li><strong>MIRAFEST</strong> — Festival</li>
+          <li><strong>Verbena de San Xoán</strong> — Barro</li>
+          <li><strong>Festa da Xuventude</strong> — Vilaboa</li>
+        </ul>
+      </div>
+
+      <div class="dos-card">
+        <h3>Bodas y eventos privados</h3>
+        <ul class="dos-list">
+          <li><strong>Principales pazos de la zona de Nigrán</strong> y Val Miñor</li>
+          <li><strong>Eventos en bodegas de las Rías Baixas</strong></li>
+          <li><strong>Casa de Campo</strong> — Vigo</li>
+          <li><strong>Bodas y celebraciones privadas</strong> en Pontevedra y Rías Baixas</li>
+        </ul>
+      </div>
+
+      <div class="dos-card">
+        <h3>Estilos y formato</h3>
+        <ul class="dos-list">
+          <li><strong>Urbano y latino:</strong> Reggaetón clásico y actual, dembow, latin house, live mashups</li>
+          <li><strong>Comercial y fiesta:</strong> Hits, pop español/internacional, 80s/90s/2000s, pachangueo</li>
+          <li><strong>Galicia:</strong> Música en gallego y verbena cuando la pista lo pide</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOTOS EN CABINA -->
+  <section id="fotos" class="section section-flip">
+    <div class="section-head">
+      <p class="meta">— En cabina</p>
+      <h2>Fotos en directo.</h2>
+    </div>
+    <div class="grid-photos">
+      <figure class="photo"><img src="images/dj-4.webp" alt="DJ ALMEi pinchando en sala llena con iluminación roja y pista animada en Galicia" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-3.webp" alt="DJ ALMEi sonriendo en cabina con auriculares y controladora Pioneer en Vigo" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-1.webp" alt="DJ ALMEi mezclando en cabina con controladora Numark en Vigo" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-2.webp" alt="DJ ALMEi con auriculares preparando mezcla en sesión en Galicia" loading="lazy" /></figure>
+    </div>
+  </section>
+
+  <!-- EQUIPO Y CONTRATACIÓN -->
+  <section id="equipo" class="section">
+    <div class="section-head">
+      <p class="meta">— Producción y logística</p>
+      <h2>Qué llevo y<br />cómo trabajamos.</h2>
+    </div>
+    <div class="rider-grid">
+      <div class="rider-item">
+        <h3>Equipo propio</h3>
+        <p>
+          Cabina completa, sonido principal para eventos habituales, monitor de cabina,
+          microfonía inalámbrica para discursos y/o animación e iluminación de cabina.
+          Coordinamos refuerzos de PA para grandes espacios o exteriores.
+        </p>
+      </div>
+      <div class="rider-item">
+        <h3>Bodas y empresas</h3>
+        <p>
+          Preparación a medida de cada evento. Consulta nuestras páginas específicas para
+          <a href="bodas.html"><strong>DJ para bodas en Vigo y Pontevedra</strong></a> y
+          <a href="eventos-empresa.html"><strong>cenas de empresa y Navidad</strong></a>.
+        </p>
+      </div>
+      <div class="rider-item">
+        <h3>Presupuesto y factura</h3>
+        <p>
+          Presupuesto cerrado antes de confirmar fecha. Emisión de factura legal con IVA.
+          Disponible en Vigo, Rías Baixas, Baixo Miño, Pontevedra, Santiago, A Coruña, Ourense y Lugo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-block">
+    <p class="meta">— Contacto directo</p>
+    <h2 class="cta-huge">¿Cerramos fecha?</h2>
+    <div class="cta-row cta-row-center">
+      <a href="calendario.html" class="cta cta-xl">RESERVAR FECHA →</a>
+      <a href="https://wa.me/34644671744?text=Hola%20DJ%20ALMEi%2C%20quiero%20contratarte%20despu%C3%A9s%20de%20ver%20tu%20dossier" target="_blank" rel="noopener" class="cta cta-xl">WHATSAPP →</a>
+      <a href="https://www.instagram.com/almei_dj/" target="_blank" rel="noopener" class="cta cta-xl">INSTAGRAM →</a>
+    </div>
+    <p class="cta-foot">Respondo en menos de 24h. También puedes explorar el <a href="/festas-galicia/">calendario de festas de Galicia</a>.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bar bar-bottom">
+    <span>© <span id="year"></span> DJ ALMEi</span>
+    <span>VIGO / GALICIA</span>
+    <span class="footer-links">
+      <a href="dossier.html">Dossier</a>
+      ·
+      <a href="bodas.html">Bodas</a>
+      ·
+      <a href="eventos-empresa.html">Empresa</a>
+      ·
+      <a href="mailto:info@djalmei.es">info@djalmei.es</a>
+      ·
+      <a href="https://wa.me/34644671744" target="_blank" rel="noopener">WhatsApp ↗</a>
+    </span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

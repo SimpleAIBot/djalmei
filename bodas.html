@@ -162,45 +162,47 @@
 
     /* Hero de bodas: una sola columna grande con copy denso */
     .bodas-hero {
-      padding: 4rem 2rem 5rem;
-      border-bottom: var(--line) solid var(--fg);
+      padding: 4rem 2rem 4.5rem;
+      border-bottom: 1px solid var(--border);
       max-width: 1100px;
       margin: 0 auto;
     }
     .bodas-hero .meta { margin-bottom: 1rem; }
     .bodas-hero h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(3rem, 9vw, 7rem);
-      text-transform: uppercase;
-      line-height: 0.9;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.8rem, 7vw, 5.2rem);
+      letter-spacing: -0.03em;
+      line-height: 1;
       margin-bottom: 1.4rem;
     }
     .bodas-hero h1 .pop { color: var(--pop); }
     .bodas-hero .lead {
-      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
       max-width: 56ch;
       margin-bottom: 2rem;
-      line-height: 1.5;
+      line-height: 1.55;
+      color: var(--muted);
     }
 
     /* Bloques de valor (3 columnas) */
     .valores {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 0;
-      border-top: var(--line) solid var(--fg);
+      gap: 1.25rem;
     }
     .valor-item {
-      padding: 2rem 1.5rem;
-      border-right: var(--line) solid var(--fg);
+      padding: 1.8rem 1.6rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
-    .valor-item:last-child { border-right: none; }
     .valor-item h3 {
       color: var(--pop);
-      font-size: 1.4rem;
-      margin-bottom: 0.8rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
     }
-    .valor-item p { font-size: 0.95rem; line-height: 1.55; }
+    .valor-item p { font-size: 0.95rem; line-height: 1.55; color: var(--muted); }
 
     /* Timeline del proceso */
     .timeline {
@@ -212,48 +214,49 @@
       display: grid;
       grid-template-columns: auto 1fr;
       gap: 1.5rem;
-      padding: 1.8rem 0;
-      border-bottom: var(--line) solid rgba(255,255,255,0.15);
+      padding: 1.6rem 0;
+      border-bottom: 1px solid var(--border);
     }
     .timeline-step:last-child { border-bottom: none; }
     .timeline-num {
       counter-increment: step;
-      font-family: 'Anton', sans-serif;
-      font-size: 3.2rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 2.2rem;
       color: var(--pop);
-      line-height: 0.9;
-      letter-spacing: 0.02em;
+      line-height: 1;
       min-width: 3rem;
     }
     .timeline-num::before { content: counter(step, decimal-leading-zero); }
     .timeline-content h3 {
-      font-size: 1.4rem;
-      margin-bottom: 0.4rem;
+      font-size: 1.35rem;
+      margin-bottom: 0.45rem;
     }
     .timeline-content p {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       line-height: 1.55;
       max-width: 60ch;
+      color: var(--muted);
     }
     .timeline-content ul {
       margin: 0.6rem 0 0 1.2rem;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       line-height: 1.6;
+      color: var(--muted);
     }
 
     /* Momentos clave: cards en grid */
     .momentos {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0;
-      border-top: var(--line) solid var(--fg);
+      gap: 1.25rem;
     }
     .momento-item {
-      padding: 2rem 1.5rem;
-      border-right: var(--line) solid var(--fg);
-      border-bottom: var(--line) solid var(--fg);
+      padding: 1.8rem 1.6rem;
+      border-radius: var(--radius);
+      background: var(--surface);
+      border: 1px solid var(--border);
     }
-    .momento-item:nth-child(even) { border-right: none; }
     .momento-item h3 {
       color: var(--pop);
       font-size: 1.4rem;
@@ -357,12 +360,10 @@
     /* Responsive */
     @media (max-width: 900px) {
       .valores { grid-template-columns: 1fr; }
-      .valor-item { border-right: none; border-bottom: var(--line) solid var(--fg); }
       .momentos { grid-template-columns: 1fr; }
-      .momento-item { border-right: none; }
       .musica-cols, .equipo-lista { grid-template-columns: 1fr; gap: 1rem; }
       .timeline-step { grid-template-columns: 1fr; gap: 0.3rem; }
-      .timeline-num { font-size: 2.4rem; }
+      .timeline-num { font-size: 2rem; }
     }
   </style>
 </head>
@@ -747,6 +748,33 @@
     </div>
   </section>
 
+  <!-- DEMO EN DIRECTO -->
+  <section class="section section-flip" id="demo">
+    <div class="section-head">
+      <p class="meta">— En cabina</p>
+      <h2>Escucha cómo suena<br>una sesión en directo.</h2>
+    </div>
+    <div class="video-wrap">
+      <video
+        class="set-video"
+        src="videos/demo-set.mp4"
+        poster="images/demo-set-poster.webp"
+        controls
+        playsinline
+        preload="metadata">
+        Tu navegador no soporta vídeo HTML5.
+      </video>
+    </div>
+    <p class="reel-note">
+      Bodas y eventos privados en <strong>pazos de Nigrán, Casa de Campo de Vigo, Pontevedra y Rías Baixas</strong>.
+      <a href="dossier.html">Ver dossier completo, salas y tracklist →</a>
+    </p>
+    <div class="grid-photos" style="margin-top:2rem;">
+      <figure class="photo"><img src="images/dj-4.webp" alt="DJ ALMEi pinchando en directo con pista llena en Galicia" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-3.webp" alt="DJ ALMEi en cabina con auriculares y equipo profesional en Vigo" loading="lazy" /></figure>
+    </div>
+  </section>
+
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="section-head">
@@ -813,6 +841,10 @@
     <span>© <span id="year"></span> DJ ALMEi</span>
     <span>VIGO / GALICIA</span>
     <span class="footer-links">
+      <a href="dossier.html">Dossier</a>
+      ·
+      <a href="eventos-empresa.html">Eventos empresa</a>
+      ·
       <a href="mailto:info@djalmei.es">info@djalmei.es</a>
       ·
       <a href="https://wa.me/34644671744" target="_blank" rel="noopener">WhatsApp ↗</a>

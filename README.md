@@ -1,86 +1,68 @@
-# Djalmei · DJ en Vigo y Galicia
+# Djalmei · DJ en Vigo y Galicia (`djalmei.es`)
 
-Web personal de **Djalmei**, DJ joven afincado en Vigo, disponible para:
-
-- 💍 Bodas
-- 🎂 Cumpleaños
-- 🥂 Fiestas privadas
-- 🏢 Eventos de empresa
-- 💃 Bailes y verbenas
-
-**Zona de actuación:** Vigo, Pontevedra, A Coruña, Santiago, Ourense, Lugo y toda Galicia.
-
-- 🌐 Web: <https://www.djalmei.es>
-- 📸 Instagram: [@almei_dj](https://www.instagram.com/almei_dj/)
+Web oficial de **DJ ALMEi** (<https://www.djalmei.es>), DJ en Vigo y toda Galicia para bodas, cenas de empresa, fiestas privadas y verbenas/festas patronais.
 
 ---
 
-## Stack
+## 🏗️ Arquitectura del Proyecto (Web + CRM)
 
-Sitio estático: HTML + CSS + JS puro. Sin build, sin dependencias.
+El ecosistema de DJ ALMEi está dividido en dos carpetas hermanas dentro de `C:\programas python\`:
 
-```
-.
-├── index.html      # estructura
-├── styles.css      # estilos (estética nocturna/neón)
-├── script.js       # animaciones de scroll + año dinámico
-├── favicon.svg     # icono
-├── CNAME           # dominio personalizado para GitHub Pages
-└── .nojekyll       # evita procesamiento Jekyll
-```
-
-## Cómo desplegar (GitHub Pages + Cloudflare)
-
-### 1. Subir el código al repo
-
-```bash
-git init
-git add .
-git commit -m "Primera versión de djalmei.es"
-git branch -M main
-git remote add origin https://github.com/SimpleAIBot/djalmei.git
-git push -u origin main
+```text
+C:\programas python\
+├── djalmei_website\          ← ESTE REPO: Web pública estática (GitHub Pages)
+│   ├── index.html            ← Home principal (manual)
+│   ├── bodas.html            ← Landing de bodas (manual)
+│   ├── eventos-empresa.html  ← Landing de eventos de empresa / Navidad (manual)
+│   ├── calendario.html       ← Página de presupuesto y disponibilidad (manual)
+│   ├── styles.css / script.js← Estilos y scripts globales (manual)
+│   ├── data\calendario.json  ← Disponibilidad exportada desde el CRM (generado)
+│   ├── festas-galicia\       ← Directorio SEO de fiestas (~190 págs, generado)
+│   ├── sitemap.xml           ← Mapa del sitio (generado por el script de festas)
+│   ├── SEO.md                ← Directrices y estado SEO (lectura obligatoria)
+│   ├── SEO_FESTAS.md         ← Diseño del directorio /festas-galicia/
+│   └── AGENTS.md             ← Contexto e instrucciones para agentes IA
+│
+└── djalmei_contactos\        ← CRM LOCAL: Prospección, facturación y generadores
+    ├── crm.db                ← Base de datos SQLite (contactos, facturas, fiestas_db)
+    ├── crm_server.py         ← Servidor Flask local (http://127.0.0.1:5000)
+    └── generar_festas_galicia.py ← Script que genera /festas-galicia/ y sitemap.xml
 ```
 
-### 2. Activar GitHub Pages
+### ¿Qué se edita aquí y qué viene del CRM?
+1. **Web principal (`djalmei_website/`)**: `index.html`, `bodas.html`, `eventos-empresa.html`, `calendario.html`, `styles.css` y `script.js` se editan directamente aquí.
+2. **Directorio `/festas-galicia/` y `sitemap.xml`**: **NO editar los HTML de `festas-galicia/` a mano**. Se generan ejecutando `python generar_festas_galicia.py` desde `C:\programas python\djalmei_contactos\`, que lee la base de datos `crm.db`, recrea la carpeta `festas-galicia/` completa y actualiza `sitemap.xml`.
+3. **Datos de calendario (`data/calendario.json`)**: Se actualizan desde el CRM local.
 
-1. En GitHub → repo `SimpleAIBot/djalmei` → **Settings** → **Pages**.
-2. En *Source* elige **Deploy from a branch**.
-3. Branch: `main` / carpeta `/ (root)` → **Save**.
-4. En *Custom domain* escribe `www.djalmei.es` y guarda.
-5. Marca **Enforce HTTPS** cuando esté disponible.
+---
 
-### 3. Configurar Cloudflare (DNS hacia GitHub Pages)
+## 🚀 Cómo probar y desplegar
 
-Dominio principal: **www.djalmei.es**. En el panel de Cloudflare del dominio `djalmei.es` añade estos registros:
-
-| Tipo  | Nombre | Contenido                | Proxy        |
-|-------|--------|--------------------------|--------------|
-| CNAME | www    | simpleaibot.github.io    | DNS only (☁ gris) |
-| A     | @      | 185.199.108.153          | DNS only |
-| A     | @      | 185.199.109.153          | DNS only |
-| A     | @      | 185.199.110.153          | DNS only |
-| A     | @      | 185.199.111.153          | DNS only |
-
-> Los registros A del apex (`@`) sirven para que `djalmei.es` (sin www) también funcione y pueda redirigir a `www.djalmei.es`.
->
-> **Importante:** mientras GitHub verifica el dominio, mantén el proxy de Cloudflare en **DNS only** (nube gris). Cuando ya esté validado y HTTPS activo, puedes activar el proxy (nube naranja).
-
-En Cloudflare → **SSL/TLS** → modo **Full**. Y en **Rules → Always Use HTTPS** activado.
-
-### 4. Probar local
-
-Cualquier servidor estático sirve. Con Python:
-
+### Probar en local
+Desde `C:\programas python\djalmei_website`:
 ```bash
 python -m http.server 8000
 ```
+Abrir <http://localhost:8000>.
 
-Y abre <http://localhost:8000>.
+### Regenerar el directorio `/festas-galicia/`
+Desde `C:\programas python\djalmei_contactos`:
+```bash
+python generar_festas_galicia.py          # Solo genera los HTML y sitemap.xml
+python generar_festas_galicia.py --push   # Genera + git commit + git push
+```
 
-## Editar contenido
+### Despliegue (GitHub Pages + Cloudflare)
+El repositorio despliega automáticamente desde la rama `main` en GitHub (`SimpleAIBot/djalmei`) bajo el dominio `www.djalmei.es`.
 
-Todo el texto está en `index.html`. Para cambiar colores, edita las variables CSS al inicio de `styles.css`:
+| Tipo  | Nombre | Contenido                |
+|-------|--------|--------------------------|
+| CNAME | www    | simpleaibot.github.io    |
+| A     | @      | 185.199.108.153 / 109.153 / 110.153 / 111.153 |
+
+---
+
+## 🎨 Variables de diseño (`styles.css`)
 
 ```css
 :root {

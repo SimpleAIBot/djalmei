@@ -47,13 +47,14 @@ La bajada de clics detectada en octubre **no se debe a una pérdida de posicione
 ## 🟡 Acciones en Curso — Temporada Alta Otoño/Invierno
 
 ### 1. Campaña Cenas de Navidad y Fin de Año (Pico comercial: Noviembre - Diciembre)
-- [x] Landing `/eventos-empresa.html` posicionada #1.
-- [ ] Reforzar en la Home y `/calendario.html` disponibilidad para Fin de Año / Cotillón en Vigo y comarcas limítrofes.
-- [ ] Promover enlaces internos desde los concellos limítrofes hacia eventos de empresa.
+- [x] Landing `/eventos-empresa.html` posicionada #1 (mantener intacta).
+- ~~Reforzar disponibilidad para Fin de Año / Cotillón~~ — **Descartado (2026-11-18):** no disponible desde Navidades hasta Fin de Año.
+- [ ] Promover enlaces internos desde los concellos limítrofes hacia eventos de empresa (cenas previas a Navidad y eventos 2027).
 
 ### 2. Captación de Bodas 2027 (Pico de contratación: Octubre - Febrero)
-- [ ] Optimizar interlinking hacia `/bodas.html` con anclajes geolocalizados: *"DJ para bodas en Vigo"*, *"DJ bodas Pontevedra"*, *"DJ pazos Rías Baixas"*.
-- [ ] Cuando haya fotos reales de bodas, sustituir las imágenes de stock.
+- [x] Optimizar interlinking hacia `/bodas.html` con anclajes geolocalizados: *"DJ para bodas en Vigo"*, *"DJ bodas Pontevedra"*, *"DJ pazos Rías Baixas"* ✓ (2026-11-18).
+- [x] Crear `/dossier.html` con sesión demo en directo (`videos/demo-set.mp4`), tracklist y trayectoria (salas, festivales, pazos de Nigrán, Casa de Campo de Vigo, verbenas) ✓ (2026-11-18).
+- [x] Añadir 2 fotos nuevas en cabina (`images/dj-3.webp`, `images/dj-4.webp`) en `dossier.html`, `bodas.html`, `eventos-empresa.html` e `index.html` ✓ (2026-11-18).
 
 ### 3. Reajuste del Directorio `/festas-galicia/` (En `generar_festas_galicia.py`)
 - [x] **Restablecer el título natural en las 168 páginas:** `Festas en {Concello} · Calendario {Año} · DJ ALMEi` ✓ (2026-10-31).

@@ -124,102 +124,112 @@
   </script>
 
   <style>
-    /* === Eventos de empresa · brutalist club === */
+    /* === Eventos de empresa · Club / Festival Moderno === */
     .emp-hero {
-      padding: 4rem 1.4rem 3rem;
-      border-bottom: var(--line-thick) solid var(--fg);
+      padding: clamp(3rem, 6vw, 4.5rem) var(--pad) clamp(2.5rem, 5vw, 3.5rem);
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at 80% 20%, rgba(216, 255, 0, 0.09), transparent 50%);
     }
     .emp-hero .meta { margin-bottom: 0.8rem; }
     .emp-hero h1 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(2.4rem, 9vw, 5.5rem);
-      text-transform: uppercase;
-      line-height: 0.9;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(2.5rem, 6.5vw, 4.8rem);
+      letter-spacing: -0.03em;
+      line-height: 1.02;
       margin: 0;
     }
     .emp-hero .emp-sub {
-      font-size: clamp(1rem, 2.6vw, 1.35rem);
-      line-height: 1.45;
-      max-width: 52ch;
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      line-height: 1.5;
+      max-width: 54ch;
       margin: 1.3rem 0 0;
-      opacity: 0.9;
+      color: var(--muted);
     }
     .emp-hero .cta-row { margin-top: 2rem; }
 
     /* Banda de temporada (se muestra sola de septiembre a diciembre) */
     .emp-navidad {
       display: none;
-      border: var(--line-thick) solid var(--pop);
+      border: 1px solid rgba(216, 255, 0, 0.35);
+      border-radius: var(--radius);
       background: rgba(216, 255, 0, 0.07);
-      padding: 1.3rem 1.4rem;
+      padding: 1.4rem 1.6rem;
       margin: 2rem 0 0;
+      max-width: 780px;
     }
     .emp-navidad.on { display: block; }
     .emp-navidad .et {
-      font-size: 0.72rem;
-      letter-spacing: 0.16em;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--pop);
       font-weight: 700;
     }
     .emp-navidad h2 {
-      font-family: 'Anton', sans-serif;
-      font-size: clamp(1.4rem, 4.5vw, 2.1rem);
-      text-transform: uppercase;
-      margin: 0.5rem 0 0.6rem;
-      line-height: 1;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: clamp(1.35rem, 3vw, 1.8rem);
+      margin: 0.45rem 0 0.5rem;
+      line-height: 1.15;
     }
-    .emp-navidad p { margin: 0; font-size: 0.95rem; line-height: 1.5; opacity: 0.9; }
+    .emp-navidad p { margin: 0; font-size: 0.95rem; line-height: 1.5; color: var(--muted); }
 
     /* Rejilla de tipos de evento */
     .emp-tipos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1px;
-      background: var(--fg);
-      border: var(--line) solid var(--fg);
+      gap: 1.25rem;
     }
-    .emp-tipo { background: var(--bg); padding: 1.4rem 1.2rem; }
+    .emp-tipo {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.6rem 1.4rem;
+    }
     .emp-tipo .num {
-      font-family: 'Anton', sans-serif;
+      display: inline-block;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
       color: var(--pop);
-      font-size: 1.5rem;
-      line-height: 1;
+      font-size: 0.85rem;
+      background: rgba(216, 255, 0, 0.1);
+      border: 1px solid rgba(216, 255, 0, 0.25);
+      border-radius: 999px;
+      padding: 0.2rem 0.65rem;
     }
     .emp-tipo h3 {
-      font-family: 'Anton', sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-      font-size: 1.15rem;
-      margin: 0.5rem 0 0.4rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      margin: 0.8rem 0 0.45rem;
     }
-    .emp-tipo p { margin: 0; font-size: 0.9rem; line-height: 1.5; opacity: 0.82; }
+    .emp-tipo p { margin: 0; font-size: 0.92rem; line-height: 1.5; color: var(--muted); }
 
     /* Guion de la noche */
     .emp-guion { margin-top: 2rem; }
     .emp-paso {
       display: grid;
-      grid-template-columns: 5.5rem 1fr;
+      grid-template-columns: 6rem 1fr;
       gap: 1.2rem;
-      padding: 1.2rem 0;
-      border-top: var(--line) solid #2a2a2a;
+      padding: 1.25rem 0;
+      border-top: 1px solid var(--border);
     }
     .emp-paso:first-child { border-top: none; }
     .emp-paso .hora {
-      font-family: 'Anton', sans-serif;
-      font-size: 0.95rem;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      font-size: 0.9rem;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       color: var(--pop);
       padding-top: 0.15rem;
     }
     .emp-paso h3 {
-      font-size: 1rem;
+      font-size: 1.05rem;
       margin: 0 0 0.35rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
     }
-    .emp-paso p { margin: 0; font-size: 0.92rem; line-height: 1.55; opacity: 0.85; }
+    .emp-paso p { margin: 0; font-size: 0.94rem; line-height: 1.55; color: var(--muted); }
     @media (max-width: 560px) {
       .emp-paso { grid-template-columns: 1fr; gap: 0.3rem; }
     }
@@ -228,12 +238,15 @@
     .emp-admin {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 1.2rem;
+      gap: 1.25rem;
       margin-top: 1.6rem;
     }
     .emp-admin-item {
-      border-left: var(--line-thick) solid var(--pop);
-      padding: 0.3rem 0 0.3rem 1rem;
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--pop);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      padding: 1.1rem 1.2rem;
     }
     .emp-admin-item h3 {
       font-size: 0.78rem;
@@ -491,6 +504,32 @@
     </div>
   </section>
 
+  <!-- DEMO EN DIRECTO -->
+  <section class="section section-flip" id="demo">
+    <div class="section-head">
+      <p class="meta">— En cabina</p>
+      <h2>Así suena<br>la pista abierta.</h2>
+    </div>
+    <div class="video-wrap">
+      <video
+        class="set-video"
+        src="videos/demo-set.mp4"
+        poster="images/demo-set-poster.webp"
+        controls
+        playsinline
+        preload="metadata">
+        Tu navegador no soporta vídeo HTML5.
+      </video>
+    </div>
+    <p class="reel-note">
+      Sesión demo en directo · <a href="dossier.html">Ver dossier completo, salas y trayectoria →</a>
+    </p>
+    <div class="grid-photos" style="margin-top:2rem;">
+      <figure class="photo"><img src="images/dj-4.webp" alt="DJ ALMEi animando la pista en evento nocturno en Vigo" loading="lazy" /></figure>
+      <figure class="photo"><img src="images/dj-3.webp" alt="DJ ALMEi en cabina durante sesión en directo en Galicia" loading="lazy" /></figure>
+    </div>
+  </section>
+
   <!-- CTA FINAL -->
   <section class="cta-block">
     <p class="meta">— Siguiente paso</p>
@@ -507,6 +546,10 @@
     <span>© <span id="year"></span> DJ ALMEi</span>
     <span>VIGO / GALICIA</span>
     <span class="footer-links">
+      <a href="dossier.html">Dossier</a>
+      ·
+      <a href="bodas.html">Bodas</a>
+      ·
       <a href="mailto:info@djalmei.es">info@djalmei.es</a>
       ·
       <a href="https://wa.me/34644671744" target="_blank" rel="noopener">WhatsApp ↗</a>
